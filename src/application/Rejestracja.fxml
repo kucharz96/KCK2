@@ -30,9 +30,11 @@
                 </Menu>
                   <Menu mnemonicParsing="false" text="Nowy">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Pacjent" />
-                        <MenuItem mnemonicParsing="false" text="Wizyta" />
-                        <MenuItem mnemonicParsing="false" text="Lekarz" />
+                        <MenuItem mnemonicParsing="false" onAction="#p_dodaj" text="Pacjent" />
+                        <MenuItem mnemonicParsing="false" onAction="#w_dodaj" text="Wizyta" />
+                        <MenuItem mnemonicParsing="false" onAction="#s_dodaj" text="Skierowanie" />
+                        <MenuItem mnemonicParsing="false" onAction="#r_dodaj" text="Recepta" />
+                        <MenuItem mnemonicParsing="false" onAction="#l_dodaj" text="Lekarz" />
                      </items>
                   </Menu>
                 <Menu mnemonicParsing="false" text="Pomoc">

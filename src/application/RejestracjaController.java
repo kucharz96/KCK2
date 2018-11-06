@@ -270,7 +270,11 @@ public class RejestracjaController {
 		
 	}	
 	//////////////////////////////////////////////////////////////DLA PACJENTA/////////////////////////////////////////////////////////////////////////////
-
+	public void p_dodaj() {
+		System.out.println("bbbbb");
+		
+	}
+	
 	public void p_edytuj() {
 		System.out.println(pacjenci.getSelectionModel().getSelectedItem().getPesel());
 	}
@@ -285,6 +289,11 @@ public class RejestracjaController {
 	}
 	//////////////////////////////////////////////////////////////DLA WIZYT/////////////////////////////////////////////////////////////////////////////
 
+	public void w_dodaj() {
+		System.out.println("bbbbb");
+		
+	}
+	
 	public void w_edytuj() {
 		System.out.println(wizyty.getSelectionModel().getSelectedItem().getPesel_pacjenta());
 	}
@@ -299,6 +308,11 @@ public class RejestracjaController {
 	}
 	//////////////////////////////////////////////////////////////DLA SKIEROWAN/////////////////////////////////////////////////////////////////////////////
 
+	public void s_dodaj() {
+		System.out.println("bbbbb");
+		
+	}
+	
 	public void s_edytuj() {
 		System.out.println(skierowania.getSelectionModel().getSelectedItem().getPesel_pacjenta());
 	}
@@ -312,7 +326,11 @@ public class RejestracjaController {
 		
 	}
 	//////////////////////////////////////////////////////////////DLA RECEPT/////////////////////////////////////////////////////////////////////////////
-
+	public void r_dodaj() {
+		System.out.println("bbbbb");
+		
+	}
+	
 	public void r_edytuj() {
 		System.out.println(recepty.getSelectionModel().getSelectedItem().getPesel_pacjenta());
 	}
@@ -326,6 +344,11 @@ public class RejestracjaController {
 		
 	}
 	//////////////////////////////////////////////////////////////DLA LEKARZY/////////////////////////////////////////////////////////////////////////////
+	public void l_dodaj() {
+		System.out.println("bbbbb");
+		
+	}
+	
 	public void l_edytuj() {
 		System.out.println(lekarze.getSelectionModel().getSelectedItem().getNazwisko());
 	}
