@@ -1,6 +1,7 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 //siemka
@@ -103,22 +104,25 @@ public class Centrala {
 	public void removeLekarz(int index) {
 		
 
-			for(int i = 0;i<recepty.size();i++) {
-				if(recepty.get(i).getId_lekarza()==lekarze.get(index).getId())
-					recepty.remove(i);
+		for(Iterator<Recepta> iter = recepty.iterator(); iter.hasNext();) {
+			Recepta a = iter.next();
+			if(a.getId_lekarza()==lekarze.get(index).getId()) 
+				iter.remove();
 				
+			
+		}
+			for(Iterator<Skierowanie> iter = skierowania.iterator(); iter.hasNext();) {
+				Skierowanie a = iter.next();
+				if(a.getId_lekarza()==lekarze.get(index).getId()) 
+					iter.remove();
+					
 				
 			}
-			for(int i = 0;i<skierowania.size();i++) {
-				if(skierowania.get(i).getId_lekarza()==lekarze.get(index).getId())
-					skierowania.remove(i);
-				
-				
-			}
-			for(int i = 0;i<wizyty.size();i++) {
-				if(wizyty.get(i).getId_lekarza()==lekarze.get(index).getId())
-					wizyty.remove(i);
-				
+			for(Iterator<Wizyta> iter = wizyty.iterator(); iter.hasNext();) {
+				Wizyta a = iter.next();
+				if(a.getId_lekarza()==lekarze.get(index).getId()) 
+					iter.remove();
+					
 				
 			}
 			

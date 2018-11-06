@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -279,8 +280,25 @@ public class RejestracjaController {
 		System.out.println(pacjenci.getSelectionModel().getSelectedItem().getPesel());
 	}
 	
-	public void p_usun() {
-		System.out.println("bbbbb");
+	public void p_usun() throws IOException {
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Potwierdzenie usuniêcia pacjenta");
+		alert.setHeaderText(null);
+		alert.setContentText("Czy usun¹æ pacjenta?");
+
+		ButtonType tak = new ButtonType("Tak");
+		ButtonType nie = new ButtonType("Nie");
+		alert.getButtonTypes().setAll(tak, nie);
+
+		Optional<ButtonType> result = alert.showAndWait();
+		
+		if (result.get() == tak){
+			Centrala.getInstance().removePacjent(pacjenci.getSelectionModel().getSelectedIndex());
+			pacjenci.getItems().remove(pacjenci.getSelectionModel().getSelectedIndex());
+		    
+		   
+		} 
+		else if (result.get() == nie);
 		
 	}
 	public void p_szczegoly() {
@@ -299,7 +317,24 @@ public class RejestracjaController {
 	}
 	
 	public void w_usun() {
-		System.out.println("bbbbb");
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Potwierdzenie usuniêcia wizyty");
+		alert.setHeaderText(null);
+		alert.setContentText("Czy usun¹æ wizytê?");
+
+		ButtonType tak = new ButtonType("Tak");
+		ButtonType nie = new ButtonType("Nie");
+		alert.getButtonTypes().setAll(tak, nie);
+
+		Optional<ButtonType> result = alert.showAndWait();
+		
+		if (result.get() == tak){
+			Centrala.getInstance().removeWizyta(wizyty.getSelectionModel().getSelectedIndex());
+			wizyty.getItems().remove(wizyty.getSelectionModel().getSelectedIndex());
+		    
+		   
+		} 
+		else if (result.get() == nie);
 		
 	}
 	public void w_szczegoly() {
@@ -318,7 +353,24 @@ public class RejestracjaController {
 	}
 	
 	public void s_usun() {
-		System.out.println("bbbbb");
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Potwierdzenie usuniêcia skierowania");
+		alert.setHeaderText(null);
+		alert.setContentText("Czy usun¹æ skierowanie?");
+
+		ButtonType tak = new ButtonType("Tak");
+		ButtonType nie = new ButtonType("Nie");
+		alert.getButtonTypes().setAll(tak, nie);
+
+		Optional<ButtonType> result = alert.showAndWait();
+		
+		if (result.get() == tak){
+			Centrala.getInstance().removeSkierowanie(skierowania.getSelectionModel().getSelectedIndex());
+			skierowania.getItems().remove(skierowania.getSelectionModel().getSelectedIndex());
+		    
+		   
+		} 
+		else if (result.get() == nie);
 		
 	}
 	public void s_szczegoly() {
@@ -336,7 +388,24 @@ public class RejestracjaController {
 	}
 	
 	public void r_usun() {
-		System.out.println("bbbbb");
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Potwierdzenie usuniêcia recepty");
+		alert.setHeaderText(null);
+		alert.setContentText("Czy usun¹æ receptê?");
+
+		ButtonType tak = new ButtonType("Tak");
+		ButtonType nie = new ButtonType("Nie");
+		alert.getButtonTypes().setAll(tak, nie);
+
+		Optional<ButtonType> result = alert.showAndWait();
+		
+		if (result.get() == tak){
+			Centrala.getInstance().removeRecepta(recepty.getSelectionModel().getSelectedIndex());
+			recepty.getItems().remove(recepty.getSelectionModel().getSelectedIndex());
+		    
+		   
+		} 
+		else if (result.get() == nie);
 		
 	}
 	public void r_szczegoly() {
@@ -354,7 +423,45 @@ public class RejestracjaController {
 	}
 	
 	public void l_usun() {
-		System.out.println("bbbbb");
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Potwierdzenie usuniêcia lekarza");
+		alert.setHeaderText(null);
+		alert.setContentText("Czy usun¹æ lekarza?");
+
+		ButtonType tak = new ButtonType("Tak");
+		ButtonType nie = new ButtonType("Nie");
+		alert.getButtonTypes().setAll(tak, nie);
+
+		Optional<ButtonType> result = alert.showAndWait();
+		
+		if (result.get() == tak){
+			Centrala.getInstance().removeLekarz(lekarze.getSelectionModel().getSelectedIndex());
+			for(Iterator<Wizyta> iter = wizyty.getItems().iterator(); iter.hasNext();) {
+				Wizyta a = iter.next();
+				if(a.getId_lekarza()==lekarze.getSelectionModel().getSelectedItem().getId()) 
+					iter.remove();
+				
+			}
+			for(Iterator<Skierowanie> iter = skierowania.getItems().iterator(); iter.hasNext();) {
+				Skierowanie a = iter.next();
+				if(a.getId_lekarza()==lekarze.getSelectionModel().getSelectedItem().getId()) 
+					iter.remove();
+					
+			}
+			for(Iterator<Recepta> iter = recepty.getItems().iterator(); iter.hasNext();) {
+				Recepta a = iter.next();
+				if(a.getId_lekarza()==lekarze.getSelectionModel().getSelectedItem().getId()) 
+					iter.remove();
+					
+				
+			}
+			
+			
+			lekarze.getItems().remove(lekarze.getSelectionModel().getSelectedIndex());
+		    
+		   
+		} 
+		else if (result.get() == nie);
 		
 	}
 	public void l_szczegoly() {
