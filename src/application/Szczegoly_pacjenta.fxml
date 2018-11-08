@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Szczegoly_pacjentaController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -17,7 +16,7 @@
                <children>
                   <Label prefHeight="26.0" prefWidth="45.0" text="Pesel:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -26,21 +25,21 @@
                         <Insets left="30.0" />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-font-weight: bold;" text="Label">
+                  <Label fx:id="pesel" style="-fx-font-weight: bold;" text="Label">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
                <padding>
-                  <Insets right="180.0" />
+                  <Insets right="160.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="34.0" prefWidth="600.0">
                <children>
                   <Label prefHeight="26.0" prefWidth="40.0" text="Imię:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -49,21 +48,21 @@
                         <Insets left="30.0" />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-font-weight: bold;" text="Label">
+                  <Label fx:id="imie" style="-fx-font-weight: bold;" text="Label">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
                <padding>
-                  <Insets right="180.0" />
+                  <Insets right="160.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="44.0" prefHeight="34.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="26.0" prefWidth="70.0" text="Nazwisko:">
+                  <Label prefHeight="26.0" prefWidth="76.0" text="Nazwisko:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -72,21 +71,21 @@
                         <Insets left="30.0" />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-font-weight: bold;" text="Label">
+                  <Label fx:id="nazwisko" style="-fx-font-weight: bold;" text="Label">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
                <padding>
-                  <Insets right="180.0" />
+                  <Insets right="160.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="79.0" prefHeight="34.0" prefWidth="600.0">
                <children>
                   <Label prefHeight="26.0" prefWidth="45.0" text="Wiek:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -95,21 +94,21 @@
                         <Insets left="30.0" />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-font-weight: bold;" text="Label">
+                  <Label fx:id="wiek" style="-fx-font-weight: bold;" text="Label">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
                <padding>
-                  <Insets right="180.0" />
+                  <Insets right="160.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="113.0" prefHeight="34.0" prefWidth="600.0">
                <children>
                   <Label prefHeight="26.0" prefWidth="45.0" text="Ulica:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -118,21 +117,21 @@
                         <Insets left="30.0" />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-font-weight: bold;" text="Label">
+                  <Label fx:id="ulica" style="-fx-font-weight: bold;" text="Label">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
                <padding>
-                  <Insets right="180.0" />
+                  <Insets right="160.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="148.0" prefHeight="34.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="26.0" prefWidth="98.0" text="Numer domu:">
+                  <Label prefHeight="26.0" prefWidth="108.0" text="Numer domu:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -141,21 +140,21 @@
                         <Insets left="30.0" />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-font-weight: bold;" text="Label">
+                  <Label fx:id="nr_domu" style="-fx-font-weight: bold;" text="Label">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
                <padding>
-                  <Insets right="180.0" />
+                  <Insets right="160.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="182.0" prefHeight="34.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="26.0" prefWidth="125.0" text="Numer mieszkania:">
+                  <Label prefHeight="26.0" prefWidth="142.0" text="Numer mieszkania:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -164,21 +163,21 @@
                         <Insets left="30.0" />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-font-weight: bold;" text="Label">
+                  <Label fx:id="nr_mieszkania" style="-fx-font-weight: bold;" text="Label">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
                <padding>
-                  <Insets right="180.0" />
+                  <Insets right="160.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="216.0" prefHeight="34.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="26.0" prefWidth="89.0" text="Miejscowość:">
+                  <Label prefHeight="26.0" prefWidth="101.0" text="Miejscowość:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -187,14 +186,14 @@
                         <Insets left="30.0" />
                      </HBox.margin>
                   </Label>
-                  <Label style="-fx-font-weight: bold;" text="Label">
+                  <Label fx:id="miejscowosc" style="-fx-font-weight: bold;" text="Label">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
                <padding>
-                  <Insets right="180.0" />
+                  <Insets right="160.0" />
                </padding>
             </HBox>
          </children>
@@ -203,17 +202,17 @@
    <bottom>
       <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="392.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="58.0" text="Edytuj">
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Edytuj">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="62.0" text="Usuń">
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Usuń">
                <HBox.margin>
                   <Insets right="165.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="60.0" text="Wyjdź">
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Wyjdź">
                <HBox.margin>
                   <Insets />
                </HBox.margin>

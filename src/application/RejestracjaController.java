@@ -36,6 +36,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
@@ -193,7 +194,12 @@ public class RejestracjaController {
 
 		pacjenci.setOnMouseClicked((MouseEvent event) -> {
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
-            	p_szczegoly();
+            	try {
+					p_szczegoly();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
 		
@@ -301,9 +307,21 @@ public class RejestracjaController {
 		else if (result.get() == nie);
 		
 	}
-	public void p_szczegoly() {
-		System.out.println("cccc");
-		
+	public void p_szczegoly() throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_pacjenta.fxml"));
+		BorderPane root = (BorderPane)fxmlLoader.load();
+		Szczegoly_pacjentaController controller = fxmlLoader.<Szczegoly_pacjentaController>getController();
+		controller.set_labels(pacjenci.getSelectionModel().getSelectedItem());
+		Scene scene = new Scene(root,400,320);
+		System.out.println("COstam");
+		Stage stage = new Stage();
+		stage.setScene(scene);
+	    stage.setTitle("Szczegol");	
+	    stage.initModality(Modality.WINDOW_MODAL);
+	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
+	    
+	    stage.show();
+	    
 	}
 	//////////////////////////////////////////////////////////////DLA WIZYT/////////////////////////////////////////////////////////////////////////////
 
