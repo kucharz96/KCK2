@@ -84,7 +84,7 @@ public class Centrala {
 		return wizyty;
 	}
 	public String Logowanie(String login, String haslo)
-	{
+	{//
 		if(login == null || haslo == null)
 			return "";
 

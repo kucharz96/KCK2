@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RejestracjaController">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar fx:id="bar">
+              <menus>
+                <Menu mnemonicParsing="false" text="Plik">
+                  <items>
+                    <MenuItem fx:id="logout" mnemonicParsing="false" onAction="#wyloguj" text="Wyloguj" />
+                        <MenuItem mnemonicParsing="false" onAction="#wyjdz" text="Zamknij" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Nowy">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#p_dodaj" text="Pacjent" />
+                        <MenuItem mnemonicParsing="false" onAction="#w_dodaj" text="Wizyta" />
+                        <MenuItem mnemonicParsing="false" onAction="#s_dodaj" text="Skierowanie" />
+                        <MenuItem mnemonicParsing="false" onAction="#r_dodaj" text="Recepta" />
+                        <MenuItem mnemonicParsing="false" onAction="#l_dodaj" text="Lekarz" />
+                     </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Pomoc">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox>
+               <children>
+                  <Label fx:id="etykieta_filtr" cache="true" text="Pesel pacjenta: ">
+                     <HBox.margin>
+                        <Insets left="35.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="pesel_filtr" onKeyReleased="#fuck" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <TabPane onKeyReleased="#change" onMouseClicked="#change" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Pacjenci">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="pacjenci" prefHeight="300.8" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                              <TableColumn fx:id="p_pesel" prefWidth="104.00000154972076" text="Pesel" />
+                            <TableColumn fx:id="p_imie" prefWidth="87.20000457763672" text="Imię" />
+                            <TableColumn fx:id="p_nazwisko" prefWidth="101.60000610351562" text="Nazwisko" />
+                              <TableColumn fx:id="p_wiek" prefWidth="52.800048828125" text="Wiek" />
+                              <TableColumn fx:id="p_ulica" prefWidth="86.39996337890625" text="Ulica" />
+                              <TableColumn fx:id="p_nr_d" prefWidth="111.20004272460938" text="Numer domu" />
+                              <TableColumn fx:id="p_nr_m" prefWidth="143.20001220703125" text="Numer mieszkania" />
+                              <TableColumn fx:id="p_miejscowosc" prefWidth="119.99993896484375" text="Miejscowość" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu fx:id="c_menu" onShown="#test">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#p_edytuj" text="Edytuj..." />
+                                    <MenuItem mnemonicParsing="false" onAction="#p_usun" text="Usuń" />
+                                    <MenuItem mnemonicParsing="false" onAction="#p_szczegoly" text="Szczegóły..." />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Wizyty">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="wizyty" layoutX="250.0" layoutY="101.0" prefHeight="601.6" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                              <TableColumn fx:id="w_id" prefWidth="44.000001549720764" text="Id" />
+                            <TableColumn fx:id="w_pesel" prefWidth="152.0000228881836" text="Pesel" />
+                            <TableColumn fx:id="w_id_p" prefWidth="120.79998779296875" text="Id lekarza" />
+                              <TableColumn fx:id="w_data" minWidth="0.0" prefWidth="279.2000427246094" text="Data" />
+                              <TableColumn fx:id="w_opis" minWidth="0.0" prefWidth="300.800048828125" text="Opis" />
+                              <TableColumn fx:id="w_id1" prefWidth="120.79998779296875" text="Id lekarza" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu fx:id="c_menu1" onShown="#test">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#w_edytuj" text="Edytuj..." />
+                                    <MenuItem mnemonicParsing="false" onAction="#w_usun" text="Usuń" />
+                                    <MenuItem mnemonicParsing="false" onAction="#w_szczegoly" text="Szczegóły..." />
+                                 </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Skierowania">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="skierowania" prefHeight="601.6" prefWidth="900.0">
+                           <columns>
+                              <TableColumn fx:id="s_id" prefWidth="44.000001549720764" text="Id" />
+                              <TableColumn fx:id="s_pesel" prefWidth="152.0000228881836" text="Pesel" />
+                              <TableColumn fx:id="s_id_p" prefWidth="120.79998779296875" text="Id lekarza" />
+                              <TableColumn fx:id="s_data" minWidth="0.0" prefWidth="279.2000427246094" text="Data" />
+                              <TableColumn fx:id="s_opis" minWidth="0.0" prefWidth="300.800048828125" text="Opis" />
+                              <TableColumn fx:id="w_id11" prefWidth="120.79998779296875" text="Id lekarza" />
+                           </columns>
+                           <contextMenu>
+                              <ContextMenu fx:id="c_menu2" onShown="#test">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#s_edytuj" text="Edytuj..." />
+                                    <MenuItem mnemonicParsing="false" onAction="#s_usun" text="Usuń" />
+                                    <MenuItem mnemonicParsing="false" onAction="#s_szczegoly" text="Szczegóły..." />
+                                 </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#change" text="Recepty">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="recepty" prefHeight="601.6" prefWidth="900.0">
+                           <columns>
+                              <TableColumn fx:id="r_id" prefWidth="44.000001549720764" text="Id" />
+                              <TableColumn fx:id="r_pesel" prefWidth="152.0000228881836" text="Pesel" />
+                              <TableColumn fx:id="r_id_p" prefWidth="120.79998779296875" text="Id lekarza" />
+                              <TableColumn fx:id="r_data" minWidth="0.0" prefWidth="279.2000427246094" text="Data" />
+                              <TableColumn fx:id="r_opis" minWidth="0.0" prefWidth="300.800048828125" text="Opis" />
+                              <TableColumn fx:id="w_id12" prefWidth="120.79998779296875" text="Id lekarza" />
+                           </columns>
+                           <contextMenu>
+                              <ContextMenu fx:id="c_menu3" onShown="#test">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#r_edytuj" text="Edytuj..." />
+                                    <MenuItem mnemonicParsing="false" onAction="#r_usun" text="Usuń" />
+                                    <MenuItem mnemonicParsing="false" onAction="#r_szczegoly" text="Szczegóły..." />
+                                 </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tab_lekarze" text="Lekarze">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="lekarze" layoutX="314.0" layoutY="136.0" prefHeight="601.6" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="l_id" prefWidth="75.0" text="Id" />
+                            <TableColumn fx:id="l_login" prefWidth="127.20003509521484" text="Login" />
+                              <TableColumn fx:id="l_haslo" prefWidth="117.5999755859375" text="Hasło" />
+                              <TableColumn fx:id="l_imie" minWidth="3.20001220703125" prefWidth="106.4000244140625" text="Imię" />
+                              <TableColumn fx:id="l_nazwisko" prefWidth="143.99996948242188" text="Nazwisko" />
+                              <TableColumn fx:id="l_wiek" prefWidth="67.99993896484375" text="Wiek" />
+                              <TableColumn fx:id="l_nr_sali" prefWidth="121.60003662109375" text="Numer sali" />
+                              <TableColumn fx:id="l_telefon" prefWidth="137.60009765625" text="Telefon" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu fx:id="c_menu4" onShown="#test">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#l_edytuj" text="Edytuj..." />
+                                    <MenuItem mnemonicParsing="false" onAction="#l_usun" text="Usuń" />
+                                    <MenuItem mnemonicParsing="false" onAction="#l_szczegoly" text="Szczegóły..." />
+                                 </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <bottom>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Label" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
