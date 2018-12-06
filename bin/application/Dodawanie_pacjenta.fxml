@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Dodawanie_pacjentaController">
+   <children>
+      <HBox prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="79.0" prefWidth="176.0" text="Pesel">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <TextField fx:id="p_pesel" alignment="CENTER" prefHeight="37.0" prefWidth="159.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="50.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Imię">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <TextField fx:id="p_imie" alignment="CENTER" prefHeight="37.0" prefWidth="159.0" />
+               </children>
+            </VBox>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="20.0" />
+         </opaqueInsets>
+      </HBox>
+      <HBox layoutY="100.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Nazwisko">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <TextField fx:id="p_nazwisko" alignment="CENTER" prefHeight="37.0" prefWidth="159.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="150.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Wiek">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <TextField fx:id="p_wiek" alignment="CENTER" prefHeight="37.0" prefWidth="159.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="200.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Ulica">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <TextField fx:id="p_ulica" alignment="CENTER" prefHeight="37.0" prefWidth="159.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="250.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Numer domu">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <TextField fx:id="p_numer_domu" alignment="CENTER" prefHeight="37.0" prefWidth="159.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="300.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Numer mieszkania">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <TextField fx:id="p_numer_mieszkania" alignment="CENTER" prefHeight="37.0" prefWidth="159.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="350.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Miejscowość">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <TextField fx:id="p_miejscowosc" alignment="CENTER" prefHeight="37.0" prefWidth="159.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="438.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="36.0" prefWidth="216.0">
+               <children>
+                  <Button fx:id="p_anuluj" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#zamknijOkno" prefHeight="25.0" prefWidth="80.0" text="Anuluj" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="184.0">
+               <children>
+                  <Button fx:id="p_ok" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="64.0" text="OK" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</Pane>

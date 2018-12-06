@@ -24,7 +24,8 @@ public class Centrala {
 				"Lodz"));
 		addPacjent(new Pacjent("96123983713", "Rafon", "Tracz", 12, "Rafonowo", 6, 16,
 				"Lodz"));
-		
+		addPacjent(new Pacjent("96123983713", "Rafon", "Tracz", 12, "Rafonowo", 6, 16,
+				"Lodz"));
        addLekarz(new Lekarz("kucharz96", "1234", "Jan", "Wacek", 35, 100, "111111111"));
 		
 		addLekarz(new Lekarz("jankomuzykant", "12346", "Kamil", "Kowalski", 30, 110, "111111112"));

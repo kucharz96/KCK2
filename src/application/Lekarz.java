@@ -10,6 +10,7 @@ public class Lekarz {
 	private int wiek;
 	private int sala;
 	private String telefon;
+	private Centrala C;
 	
 	public Lekarz(String login, String haslo, String imie, String nazwisko, int wiek, int sala, String telefon)
 	{
@@ -43,8 +44,16 @@ public class Lekarz {
 		return login;
 	}
 
-	public void setLogin(String login) {
+	public boolean setLogin(String login) {
+		for(Lekarz L : C.getInstance().getLekarze())
+		{
+			if (L.equals(login))
+			{
+				return false;
+			}
+		}
 		this.login = login;
+		return true;
 	}
 
 	public String getHaslo() {
@@ -83,15 +92,35 @@ public class Lekarz {
 		return sala;
 	}
 
-	public void setSala(int sala) {
+	public boolean setSala(int sala) {
+		for(Lekarz L : C.getInstance().getLekarze())
+		{
+			if (L.getSala() == sala)
+			{
+				return false;
+			}
+		}
 		this.sala = sala;
+		return true;
 	}
 
 	public String getTelefon() {
 		return telefon;
 	}
 
-	public void setTelefon(String telefon) {
+	public boolean setTelefon(String telefon) {
+		if (telefon.length() < 9)
+		{
+			return false;
+		}
+		for(Lekarz L : C.getInstance().getLekarze())
+		{
+			if (L.getLogin().equals(login))
+			{
+				return false;
+			}
+		}
 		this.telefon = telefon;
+		return true;
 	}
 }

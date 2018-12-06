@@ -11,6 +11,7 @@ import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -36,6 +37,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -53,11 +55,15 @@ public class RejestracjaController {
 	public ContextMenu c_menu2;
 	public ContextMenu c_menu3;
 	public ContextMenu c_menu4;
-	
+	@FXML
 	public TableView<Lekarz> lekarze;
+	@FXML
 	public TableView<Pacjent> pacjenci;
+	@FXML
 	public TableView<Wizyta> wizyty;
+	@FXML
 	public TableView<Skierowanie> skierowania;
+	@FXML
 	public TableView<Recepta> recepty;
 
 	public TableColumn<Pacjent,String> p_pesel, p_imie, p_nazwisko, p_ulica, p_miejscowosc;
@@ -73,6 +79,10 @@ public class RejestracjaController {
 	public TableColumn<Recepta,String> r_pesel, r_opis;
 	public TableColumn<Recepta,Integer> r_id_p,r_id;
 	public TableColumn<Recepta,Date> r_data;
+	public ObservableList<Pacjent> lista;
+	public ObservableList<Wizyta> lista1;
+	public ObservableList<Skierowanie> lista2;
+	public ObservableList<Recepta> lista3;
 	
 	public void change() {
 		if(tab_lekarze.isSelected())
@@ -113,10 +123,10 @@ public class RejestracjaController {
 					tmp4.add(a);
 			
 			}
-			ObservableList<Pacjent> lista = FXCollections.observableArrayList(tmp1);
-			ObservableList<Wizyta> lista1 = FXCollections.observableArrayList(tmp2);
-			ObservableList<Skierowanie> lista2 = FXCollections.observableArrayList(tmp3);
-			ObservableList<Recepta> lista3 = FXCollections.observableArrayList(tmp4);
+			lista = FXCollections.observableArrayList(tmp1);
+			lista1 = FXCollections.observableArrayList(tmp2);
+			lista2 = FXCollections.observableArrayList(tmp3);
+			lista3 = FXCollections.observableArrayList(tmp4);
 
 			pacjenci.setItems(lista);
 			wizyty.setItems(lista1);
@@ -279,11 +289,52 @@ public class RejestracjaController {
 	//////////////////////////////////////////////////////////////DLA PACJENTA/////////////////////////////////////////////////////////////////////////////
 	public void p_dodaj() {
 		System.out.println("bbbbb");
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dodawanie_pacjenta.fxml"));
+			Pane root = (Pane)fxmlLoader.load();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
+			Dodawanie_pacjentaController controller = fxmlLoader.getController();
+		    controller.setItems(pacjenci.getItems());
+			stage.setScene(scene);
+		    stage.setTitle("Dodaj pacjenta");	
+		    stage.initModality(Modality.WINDOW_MODAL);
+		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
+		    
+		    stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
 	public void p_edytuj() {
 		System.out.println(pacjenci.getSelectionModel().getSelectedItem().getPesel());
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Edytowanie_pacjenta.fxml"));
+			Pane root = (Pane)fxmlLoader.load();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
+			Edytowanie_pacjentaController controller = fxmlLoader.getController();
+			Edytowanie_pacjentaController controller2 = fxmlLoader.getController();
+			Edytowanie_pacjentaController controllerIndex = fxmlLoader.getController();
+			//Odbiór i przekazanie danych
+			controllerIndex.setIndex(pacjenci.getSelectionModel().selectedIndexProperty().get());
+			controller2.setItems(pacjenci.getItems());
+		    controller.getItems(pacjenci.getSelectionModel().getSelectedItem());
+			stage.setScene(scene);
+		    stage.setTitle("Dodaj pacjenta");	
+		    stage.initModality(Modality.WINDOW_MODAL);
+		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
+		    
+		    stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void p_usun() throws IOException {
@@ -316,7 +367,7 @@ public class RejestracjaController {
 		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
-	    stage.setTitle("Szczegol");	
+	    stage.setTitle("Szczegó³y");	
 	    stage.initModality(Modality.WINDOW_MODAL);
 	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
 	    
@@ -433,6 +484,24 @@ public class RejestracjaController {
 	//////////////////////////////////////////////////////////////DLA LEKARZY/////////////////////////////////////////////////////////////////////////////
 	public void l_dodaj() {
 		System.out.println("bbbbb");
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dodawanie_lekarza.fxml"));
+			Pane root = (Pane)fxmlLoader.load();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
+			Dodawanie_lekarzaController controller = fxmlLoader.getController();
+		    controller.setItems(lekarze.getItems());
+			stage.setScene(scene);
+		    stage.setTitle("Dodaj lekarza");	
+		    stage.initModality(Modality.WINDOW_MODAL);
+		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
+		    
+		    stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	

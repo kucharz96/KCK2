@@ -1,4 +1,7 @@
 package application;
+
+import java.util.ArrayList;
+
 public class Pacjent {
 	//private int id_lekarza;
 	private String pesel;
@@ -9,6 +12,8 @@ public class Pacjent {
 	private int nr_domu;
 	private int nr_mieszkania;
 	private String miejscowosc;
+	private Centrala C;
+	
 	Pacjent(/*int id_lekarza, */String pesel, String imie, String nazwisko, int wiek, String ulica, int nr_domu, int nr_mieszkania,
 			String miejscowosc)
 	{
@@ -25,19 +30,46 @@ public class Pacjent {
 	public String getPesel() {
 		return pesel;
 	}
-	public void setPesel(String pesel) {
-		this.pesel = pesel;
+	@SuppressWarnings("static-access")
+	public boolean setPesel(String pesel) {
+		String pattern = "[0-9]{11}";
+		if (pesel.matches(pattern))
+		{
+			for (Pacjent P1 : C.getInstance().getPacjenci()) {
+				if (P1.getPesel().equals(pesel)) {
+					System.out.println("Pesel niepoprawny");
+					return false;
+				}
+			}
+			System.out.println("Pesel Poprawny");
+			this.pesel = pesel;
+			return true;
+			
+		}
+		System.out.println("Pesel niepoprawny!");
+		return false;
 	}
 	public String getImie() {
+
 		return imie;
 	}
 	public void setImie(String imie) {
-		this.imie = imie;
+		String pattern = "[A-Z][a-z]*";
+		if (imie.matches(pattern))
+		{
+			this.imie = imie;
+		}
+		
 	}
 	public String getNazwisko() {
 		return nazwisko;
 	}
 	public void setNazwisko(String nazwisko) {
+		String pattern = "[A-Z][a-z]*";
+		if (nazwisko.matches(pattern))
+		{
+			this.nazwisko = nazwisko;
+		}
 		this.nazwisko = nazwisko;
 	}
 	public int getWiek() {
