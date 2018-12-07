@@ -50,7 +50,6 @@ public class Pacjent {
 		return false;
 	}
 	public String getImie() {
-
 		return imie;
 	}
 	public void setImie(String imie) {

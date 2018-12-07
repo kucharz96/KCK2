@@ -378,11 +378,51 @@ public class RejestracjaController {
 
 	public void w_dodaj() {
 		System.out.println("bbbbb");
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dodawanie_wizyty.fxml"));
+			Pane root = (Pane)fxmlLoader.load();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
+			Dodawanie_wizytyController controller = fxmlLoader.getController();
+		    controller.setItems(wizyty.getItems());
+			stage.setScene(scene);
+		    stage.setTitle("Dodaj wizytê");	
+		    stage.initModality(Modality.WINDOW_MODAL);
+		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
+		    
+		    stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
-	
 	public void w_edytuj() {
 		System.out.println(wizyty.getSelectionModel().getSelectedItem().getPesel_pacjenta());
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Edytowanie_wizyty.fxml"));
+			Pane root = (Pane)fxmlLoader.load();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
+			Edytowanie_wizytyController controller = fxmlLoader.getController();
+			Edytowanie_wizytyController controller2 = fxmlLoader.getController();
+			Edytowanie_wizytyController controllerIndex = fxmlLoader.getController();
+			//Odbiór i przekazanie danych
+			controllerIndex.setIndex(wizyty.getSelectionModel().selectedIndexProperty().get());
+			controller2.setItems(wizyty.getItems());
+		    controller.getItems(wizyty.getSelectionModel().getSelectedItem());
+			stage.setScene(scene);
+		    stage.setTitle("Edytuj wizytê");	
+		    stage.initModality(Modality.WINDOW_MODAL);
+		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
+		    
+		    stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void w_usun() {
@@ -449,6 +489,25 @@ public class RejestracjaController {
 	//////////////////////////////////////////////////////////////DLA RECEPT/////////////////////////////////////////////////////////////////////////////
 	public void r_dodaj() {
 		System.out.println("bbbbb");
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dodawanie_recepty.fxml"));
+			Pane root = (Pane)fxmlLoader.load();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
+			Dodawanie_receptyController controller = fxmlLoader.getController();
+		    controller.setItems(recepty.getItems());
+			stage.setScene(scene);
+		    stage.setTitle("Dodaj pacjenta");	
+		    stage.initModality(Modality.WINDOW_MODAL);
+		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
+		    
+		    stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 	

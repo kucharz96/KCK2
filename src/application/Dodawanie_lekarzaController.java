@@ -33,6 +33,7 @@ import javafx.util.converter.IntegerStringConverter;
 public class Dodawanie_lekarzaController {
 	@FXML
 	private TextField l_login, l_haslo, l_imie, l_nazwisko, l_wiek, l_sala, l_telefon;
+	@FXML
 	public Button p_ok, p_anuluj;
 	//Stworzenie instancji na pacjenta stworzonego w tym kontrolerze
 	@FXML

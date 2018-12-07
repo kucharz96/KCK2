@@ -2,6 +2,7 @@ package application;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class Wizyta {
 	
@@ -16,8 +17,8 @@ public class Wizyta {
 		this.id = total_id++;
 		this.id_lekarza = id_lekarza;
 		this.pesel_pacjenta = pesel_pacjenta;
-		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 		
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 		    try {
 				this.data = formatter.parse(data);
 			} catch (ParseException e) {
