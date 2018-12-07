@@ -143,6 +143,7 @@ public class Edytowanie_pacjentaController {
 				if (P1.getPesel().equals(p_pesel) && !PP.getPesel().equals(P1.getPesel()))
 				{
 					peselError();
+					System.out.println("XD");
 				}
 			}
 			if(p.setPesel(p_pesel.getText())==true)
