@@ -215,22 +215,42 @@ public class RejestracjaController {
 		
 		wizyty.setOnMouseClicked((MouseEvent event) -> {
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
-                w_szczegoly();
+                try {
+					w_szczegoly();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
 		skierowania.setOnMouseClicked((MouseEvent event) -> {
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
-                s_szczegoly();
+                try {
+					s_szczegoly();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
 		recepty.setOnMouseClicked((MouseEvent event) -> {
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
-                r_szczegoly();
+                try {
+					r_szczegoly();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
 		lekarze.setOnMouseClicked((MouseEvent event) -> {
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
-                l_szczegoly();
+                try {
+					l_szczegoly();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
     
@@ -360,10 +380,10 @@ public class RejestracjaController {
 	}
 	public void p_szczegoly() throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_pacjenta.fxml"));
-		BorderPane root = (BorderPane)fxmlLoader.load();
+		Pane root = (Pane)fxmlLoader.load();
 		Szczegoly_pacjentaController controller = fxmlLoader.<Szczegoly_pacjentaController>getController();
 		controller.set_labels(pacjenci.getSelectionModel().getSelectedItem());
-		Scene scene = new Scene(root,400,320);
+		Scene scene = new Scene(root);
 		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
@@ -446,8 +466,21 @@ public class RejestracjaController {
 		else if (result.get() == nie);
 		
 	}
-	public void w_szczegoly() {
+	public void w_szczegoly() throws IOException {
 		System.out.println("cccc");
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_wizyty.fxml"));
+		Pane root = (Pane)fxmlLoader.load();
+		Szczegoly_wizytyController controller = fxmlLoader.<Szczegoly_wizytyController>getController();
+		controller.set_labels(wizyty.getSelectionModel().getSelectedItem());
+		Scene scene = new Scene(root);
+		System.out.println("COstam");
+		Stage stage = new Stage();
+		stage.setScene(scene);
+	    stage.setTitle("Szczegó³y");	
+	    stage.initModality(Modality.WINDOW_MODAL);
+	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
+	    
+	    stage.show();
 		
 	}
 	//////////////////////////////////////////////////////////////DLA SKIEROWAN/////////////////////////////////////////////////////////////////////////////
@@ -482,8 +515,22 @@ public class RejestracjaController {
 		else if (result.get() == nie);
 		
 	}
-	public void s_szczegoly() {
+	public void s_szczegoly() throws IOException {
 		System.out.println("cccc");
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_skierowania.fxml"));
+		Pane root = (Pane)fxmlLoader.load();
+		Szczegoly_skierowaniaController controller = fxmlLoader.<Szczegoly_skierowaniaController>getController();
+		controller.set_labels(skierowania.getSelectionModel().getSelectedItem());
+		Scene scene = new Scene(root);
+		System.out.println("COstam");
+		Stage stage = new Stage();
+		stage.setScene(scene);
+	    stage.setTitle("Szczegó³y");	
+	    stage.initModality(Modality.WINDOW_MODAL);
+	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
+	    
+	    stage.show();
+	    
 		
 	}
 	//////////////////////////////////////////////////////////////DLA RECEPT/////////////////////////////////////////////////////////////////////////////
@@ -536,8 +583,21 @@ public class RejestracjaController {
 		else if (result.get() == nie);
 		
 	}
-	public void r_szczegoly() {
+	public void r_szczegoly() throws IOException {
 		System.out.println("cccc");
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_recepty.fxml"));
+		Pane root = (Pane)fxmlLoader.load();
+		Szczegoly_receptyController controller = fxmlLoader.<Szczegoly_receptyController>getController();
+		controller.set_labels(recepty.getSelectionModel().getSelectedItem());
+		Scene scene = new Scene(root);
+		System.out.println("COstam");
+		Stage stage = new Stage();
+		stage.setScene(scene);
+	    stage.setTitle("Szczegó³y");	
+	    stage.initModality(Modality.WINDOW_MODAL);
+	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
+	    
+	    stage.show();
 		
 	}
 	//////////////////////////////////////////////////////////////DLA LEKARZY/////////////////////////////////////////////////////////////////////////////
@@ -566,6 +626,29 @@ public class RejestracjaController {
 	
 	public void l_edytuj() {
 		System.out.println(lekarze.getSelectionModel().getSelectedItem().getNazwisko());
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Edytowanie_lekarza.fxml"));
+			Pane root = (Pane)fxmlLoader.load();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
+			Edytowanie_lekarzaController controller = fxmlLoader.getController();
+			Edytowanie_lekarzaController controller2 = fxmlLoader.getController();
+			Edytowanie_lekarzaController controllerIndex = fxmlLoader.getController();
+			//Odbiór i przekazanie danych
+			controllerIndex.setIndex(lekarze.getSelectionModel().selectedIndexProperty().get());
+			controller2.setItems(lekarze.getItems());
+		    controller.getItems(lekarze.getSelectionModel().getSelectedItem());
+			stage.setScene(scene);
+		    stage.setTitle("Dodaj pacjenta");	
+		    stage.initModality(Modality.WINDOW_MODAL);
+		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
+		    
+		    stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void l_usun() {
@@ -610,8 +693,21 @@ public class RejestracjaController {
 		else if (result.get() == nie);
 		
 	}
-	public void l_szczegoly() {
+	public void l_szczegoly() throws IOException {
 		System.out.println("cccc");
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_lekarza.fxml"));
+		Pane root = (Pane)fxmlLoader.load();
+		Szczegoly_lekarzeController controller = fxmlLoader.<Szczegoly_lekarzeController>getController();
+		controller.set_labels(lekarze.getSelectionModel().getSelectedItem());
+		Scene scene = new Scene(root);
+		System.out.println("COstam");
+		Stage stage = new Stage();
+		stage.setScene(scene);
+	    stage.setTitle("Szczegó³y");	
+	    stage.initModality(Modality.WINDOW_MODAL);
+	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
+	    
+	    stage.show();
 		
 	}
 	//////////////////////////////////////////////////////////////BLOKADA CONTEXT MENU/////////////////////////////////////////////////////////////////////////////

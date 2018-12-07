@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Szczegoly_pacjentaController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Szczegoly_lekarzeController">
    <children>
       <HBox prefHeight="37.0" prefWidth="432.0">
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="79.0" prefWidth="176.0" text="Pesel">
+                  <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="79.0" prefWidth="176.0" text="Imię">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -23,33 +23,12 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="l_pesel" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="imie" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
       <HBox layoutY="50.0" prefHeight="37.0" prefWidth="432.0">
-         <children>
-            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Imię">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox prefHeight="105.0" prefWidth="181.0">
-               <children>
-                  <Label fx:id="l_imie" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
-               </children>
-            </VBox>
-         </children>
-         <opaqueInsets>
-            <Insets bottom="20.0" />
-         </opaqueInsets>
-      </HBox>
-      <HBox layoutY="100.0" prefHeight="37.0" prefWidth="432.0">
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
@@ -62,12 +41,51 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="l_nazwisko" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="nazwisko" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+               </children>
+            </VBox>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="20.0" />
+         </opaqueInsets>
+      </HBox>
+      <HBox layoutY="100.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Login">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <Label fx:id="login" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
       <HBox layoutY="150.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Hasło">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <Label fx:id="haslo" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="200.0" prefHeight="37.0" prefWidth="432.0">
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
@@ -80,25 +98,7 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="l_wiek" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-      <HBox layoutY="200.0" prefHeight="37.0" prefWidth="432.0">
-         <children>
-            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Ulica">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox prefHeight="105.0" prefWidth="181.0">
-               <children>
-                  <Label fx:id="l_ulica" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="wiek" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
@@ -107,7 +107,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Numer domu">
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Sala">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -116,7 +116,7 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="l_numer_domu" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="sala" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
@@ -125,7 +125,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Numer mieszkania">
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Telefon">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -134,30 +134,12 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="l_numer_mieszkania" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="telefon" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <HBox layoutY="350.0" prefHeight="37.0" prefWidth="432.0">
-         <children>
-            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Miejscowość">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox prefHeight="105.0" prefWidth="181.0">
-               <children>
-                  <Label fx:id="l_miejscowosc" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-      <HBox layoutY="438.0" prefHeight="37.0" prefWidth="432.0">
+      <HBox layoutY="380.0" prefHeight="37.0" prefWidth="432.0">
          <children>
             <VBox alignment="CENTER" prefHeight="36.0" prefWidth="216.0" />
             <VBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="184.0">

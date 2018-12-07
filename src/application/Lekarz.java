@@ -45,13 +45,7 @@ public class Lekarz {
 	}
 
 	public boolean setLogin(String login) {
-		for(Lekarz L : C.getInstance().getLekarze())
-		{
-			if (L.equals(login))
-			{
-				return false;
-			}
-		}
+
 		this.login = login;
 		return true;
 	}
@@ -93,13 +87,7 @@ public class Lekarz {
 	}
 
 	public boolean setSala(int sala) {
-		for(Lekarz L : C.getInstance().getLekarze())
-		{
-			if (L.getSala() == sala)
-			{
-				return false;
-			}
-		}
+		
 		this.sala = sala;
 		return true;
 	}
@@ -112,13 +100,6 @@ public class Lekarz {
 		if (telefon.length() < 9)
 		{
 			return false;
-		}
-		for(Lekarz L : C.getInstance().getLekarze())
-		{
-			if (L.getLogin().equals(login))
-			{
-				return false;
-			}
 		}
 		this.telefon = telefon;
 		return true;

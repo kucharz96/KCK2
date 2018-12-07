@@ -5,8 +5,6 @@ import java.util.function.UnaryOperator;
 
 import javax.imageio.spi.RegisterableService;
 
-
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -32,15 +30,14 @@ import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 
 
-public class Edytowanie_pacjentaController {
+public class Edytowanie_lekarzaController {
 	@FXML
-	private TextField p_pesel, p_imie, p_nazwisko, p_wiek, p_numer_domu, p_numer_mieszkania,p_ulica,
-	p_miejscowosc;
+	private TextField l_login, l_haslo, l_imie, l_nazwisko, l_wiek, l_sala, l_telefon;
 	@FXML
 	public Button p_ok, p_anuluj;
 	//Stworzenie instancji na pacjenta stworzonego w tym kontrolerze]
 	private int index;
-	private ObservableList<Pacjent> pacjent_lista;
+	private ObservableList<Lekarz> lekarz_lista;
 	private Centrala C;
 	//Nale¿y j¹ wykonaæ, by nadaæ jakby eventy na poszczególne pola (wykonuje siê dla wszystkich FXML), jest to taka inicjalizacyjna
 	//Inicjalizuje ona w³asciwoœci dla FXMLi
@@ -49,71 +46,60 @@ public class Edytowanie_pacjentaController {
 	{
 		//System.out.println(pacjent.getPesel());
 		//p_pesel.textProperty().setValue();
-		p_pesel.textProperty().addListener(new ChangeListener<String>() {
-		    @Override
-		    public void changed(ObservableValue<? extends String> observable, String oldValue, 
-		        String newValue) {
-		        if (newValue.matches("([0-9]){0,11}")) {
-		            int value = Integer.parseInt(newValue);
-		        } else {
-		            p_pesel.setText(oldValue);
-		        }
-		    }
-		});
-		p_imie.textProperty().addListener(new ChangeListener<String>() {
+		l_imie.textProperty().addListener(new ChangeListener<String>() {
 		    @Override
 		    public void changed(ObservableValue<? extends String> observable, String oldValue, 
 		        String newValue) {
 		        if (newValue.matches("[A-Z][a-z]*")) {
 		            int value = Integer.parseInt(newValue);
 		        } else {
-		            p_imie.setText("");
+		            l_imie.setText("");
 		        }
 		    }
 		});
-		p_nazwisko.textProperty().addListener(new ChangeListener<String>() {
+		l_nazwisko.textProperty().addListener(new ChangeListener<String>() {
 		    @Override
 		    public void changed(ObservableValue<? extends String> observable, String oldValue, 
 		        String newValue) {
 		        if (newValue.matches("[A-Z][a-z]*")) {
 		        	int value = Integer.parseInt(newValue);
 		        } else {
-		            p_nazwisko.setText("");
+		            l_nazwisko.setText("");
 		        }
 		    }
 		});
-		p_wiek.textProperty().addListener(new ChangeListener<String>() {
+		l_wiek.textProperty().addListener(new ChangeListener<String>() {
 		    @Override
 		    public void changed(ObservableValue<? extends String> observable, String oldValue, 
 		        String newValue) {
 		        if (newValue.matches("([0-9]){0,3}")) {
 		            int value = Integer.parseInt(newValue);
 		        } else {
-		            p_wiek.setText(oldValue);
+		            l_wiek.setText(oldValue);
 		        }
 		    }
 		});
-		//Czy na pewno potrzeba nam walidacja numeru mieszkania i numeru domu (np. dom 11A)
-		p_numer_domu.textProperty().addListener(new ChangeListener<String>() {
+
+		l_sala.textProperty().addListener(new ChangeListener<String>() {
 		    @Override
 		    public void changed(ObservableValue<? extends String> observable, String oldValue, 
 		        String newValue) {
 		        if (newValue.matches("([0-9]){0,3}")) {
 		            int value = Integer.parseInt(newValue);
 		        } else {
-		            p_numer_domu.setText(oldValue);
+		            l_sala.setText(oldValue);
 		        }
 		    }
 		});
-		//Czy na pewno potrzeba nam walidacja numeru mieszkania i numeru domu (np. dom 11A)
-		p_numer_mieszkania.textProperty().addListener(new ChangeListener<String>() {
+
+		l_telefon.textProperty().addListener(new ChangeListener<String>() {
 		    @Override
 		    public void changed(ObservableValue<? extends String> observable, String oldValue, 
 		        String newValue) {
-		        if (newValue.matches("([0-9]){0,3}")) {
+		        if (newValue.matches("([0-9]){0,9}")) {
 		            int value = Integer.parseInt(newValue);
 		        } else {
-		            p_numer_mieszkania.setText(oldValue);
+		            l_telefon.setText(oldValue);
 		        }
 		    }
 		});
@@ -130,49 +116,49 @@ public class Edytowanie_pacjentaController {
 
 		if(p_ok != null)
 		{	
-			if(p_pesel.getText().isEmpty() || p_imie.getText().isEmpty() || p_nazwisko.getText().isEmpty() ||
-				p_wiek.getText().isEmpty() || p_numer_domu.getText().isEmpty() || p_numer_mieszkania.getText().isEmpty()
-				|| p_ulica.getText().isEmpty() || p_miejscowosc.getText().isEmpty())
+			if(l_login.getText().isEmpty() || l_haslo.getText().isEmpty() || l_imie.getText().isEmpty() ||
+				l_nazwisko.getText().isEmpty() || l_wiek.getText().isEmpty() || l_sala.getText().isEmpty()
+				|| l_telefon.getText().isEmpty())
 				{
 					errorWindow();
 				}
-			Pacjent p = new Pacjent(null, null, null, 0, null, 0, 0, null);
-			Pacjent PP = C.getInstance().getPacjenci().get(index);
-			for(Pacjent P1: C.getInstance().getPacjenci())
+			Lekarz l = new Lekarz(null, null, null, null, 0, 0, null);
+			Lekarz PP = C.getInstance().getLekarze().get(index);
+			for(Lekarz P1: C.getInstance().getLekarze())
 			{
-				if (P1.getPesel().equals(p_pesel) && !PP.getPesel().equals(P1.getPesel()))
+				if ((P1.getLogin().equals(l_login) && PP.getLogin() != P1.getLogin()) ||
+						(P1.getSala() == Integer.parseInt(l_sala.getText()) && PP.getSala() != P1.getSala()) ||
+						(P1.getTelefon().equals(l_telefon) && PP.getTelefon() != P1.getTelefon()))
 				{
 					peselError();
+					
 				}
 			}
-			if(p.setPesel(p_pesel.getText())==true)
-			{
-				p.setPesel(p_pesel.getText());
-				p.setImie(p_imie.getText());
-				p.setNazwisko(p_nazwisko.getText());
-				p.setWiek(Integer.parseInt(p_wiek.getText()));
-				p.setUlica(p_ulica.getText());
-				p.setNr_domu(Integer.parseInt(p_numer_domu.getText()));
-				p.setNr_mieszkania(Integer.parseInt(p_numer_mieszkania.getText()));
-				p.setMiejscowosc(p_miejscowosc.getText());
-				//Centrala.getInstance().addPacjent(p);
 
-				//Dodanie pacjenta//
-				pacjent_lista.set(index, p);
+				l.setLogin(l_login.getText());
+				l.setHaslo(l_haslo.getText());
+				l.setImie(l_imie.getText());
+				l.setNazwisko(l_nazwisko.getText());
+				l.setSala(Integer.parseInt(l_sala.getText()));
+				l.setWiek(Integer.parseInt(l_wiek.getText()));
+				l.setTelefon(l_telefon.getText());
+				//Centrala.getInstance().addLekarz(l);
+
+				//Dodanie lekarza
+				lekarz_lista.add(l);
 				informationWindow();
-	
-			}
-			}
+				
 			
 		}
 
-	
+			
+	}
 	public void informationWindow()
 	{
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Komunikat");
 		alert.setHeaderText(null);
-		alert.setContentText("Pomyœlnie edytowano pacjenta.");
+		alert.setContentText("Pomyœlnie edytowano doktorka.");
 
 		alert.showAndWait();
 	}
@@ -190,27 +176,26 @@ public class Edytowanie_pacjentaController {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("B³¹d");
 		alert.setHeaderText(null);
-		alert.setContentText("Pesel ju¿ istnieje.");
+		alert.setContentText("Login, sala lub telefon s¹ zajête.");
 
 		alert.showAndWait();
 	}
 	//Implementacja metody potrzebnej w tym kontrolerze na dodanie Pacjenta do listy.
 
-	public void setItems(ObservableList<Pacjent> pacjent2) {
+	public void setItems(ObservableList<Lekarz> pacjent2) {
 		// TODO Auto-generated method stub
-		this.pacjent_lista = pacjent2;
+		this.lekarz_lista = pacjent2;
 		
 	}
-	public void getItems(Pacjent selectedItem) {
+	public void getItems(Lekarz selectedItem) {
 		// TODO Auto-generated method stub
-		p_pesel.textProperty().setValue(selectedItem.getPesel());
-		p_imie.textProperty().setValue(selectedItem.getImie());
-		p_nazwisko.textProperty().setValue(selectedItem.getNazwisko());
-		p_wiek.textProperty().setValue(Integer.toString(selectedItem.getWiek()));
-		p_ulica.textProperty().setValue(selectedItem.getUlica());
-		p_numer_domu.textProperty().setValue(Integer.toString(selectedItem.getNr_domu()));
-		p_numer_mieszkania.textProperty().setValue(Integer.toString(selectedItem.getNr_mieszkania()));
-		p_miejscowosc.textProperty().setValue(selectedItem.getMiejscowosc());
+		l_imie.textProperty().setValue(selectedItem.getImie());
+		l_nazwisko.textProperty().setValue(selectedItem.getNazwisko());
+		l_wiek.textProperty().setValue(Integer.toString(selectedItem.getWiek()));
+		l_login.textProperty().setValue(selectedItem.getLogin());
+		l_sala.textProperty().setValue(Integer.toString(selectedItem.getSala()));
+		l_haslo.textProperty().setValue(selectedItem.getHaslo());
+		l_telefon.textProperty().setValue(selectedItem.getTelefon());
 		
 	}
 	public void setIndex(int i) {

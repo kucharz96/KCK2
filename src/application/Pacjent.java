@@ -41,7 +41,7 @@ public class Pacjent {
 					return false;
 				}
 			}
-			System.out.println("Pesel Poprawny");
+
 			this.pesel = pesel;
 			return true;
 			

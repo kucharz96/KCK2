@@ -3,224 +3,169 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Szczegoly_pacjentaController">
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Szczegoly_pacjentaController">
+   <children>
+      <HBox prefHeight="37.0" prefWidth="432.0">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="600.0">
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
-                  <Label prefHeight="26.0" prefWidth="45.0" text="Pesel:">
+                  <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="79.0" prefWidth="176.0" text="Pesel">
                      <font>
-                        <Font size="16.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="pesel" style="-fx-font-weight: bold;" text="Label">
-                     <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                </children>
-               <padding>
-                  <Insets right="160.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="34.0" prefWidth="600.0">
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label prefHeight="26.0" prefWidth="40.0" text="Imię:">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="imie" style="-fx-font-weight: bold;" text="Label">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
+                  <Label fx:id="l_pesel" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
-               <padding>
-                  <Insets right="160.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="44.0" prefHeight="34.0" prefWidth="600.0">
-               <children>
-                  <Label prefHeight="26.0" prefWidth="76.0" text="Nazwisko:">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="nazwisko" style="-fx-font-weight: bold;" text="Label">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets right="160.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="79.0" prefHeight="34.0" prefWidth="600.0">
-               <children>
-                  <Label prefHeight="26.0" prefWidth="45.0" text="Wiek:">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="wiek" style="-fx-font-weight: bold;" text="Label">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets right="160.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="113.0" prefHeight="34.0" prefWidth="600.0">
-               <children>
-                  <Label prefHeight="26.0" prefWidth="45.0" text="Ulica:">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="ulica" style="-fx-font-weight: bold;" text="Label">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets right="160.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="148.0" prefHeight="34.0" prefWidth="600.0">
-               <children>
-                  <Label prefHeight="26.0" prefWidth="108.0" text="Numer domu:">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="nr_domu" style="-fx-font-weight: bold;" text="Label">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets right="160.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="182.0" prefHeight="34.0" prefWidth="600.0">
-               <children>
-                  <Label prefHeight="26.0" prefWidth="142.0" text="Numer mieszkania:">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="nr_mieszkania" style="-fx-font-weight: bold;" text="Label">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets right="160.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="216.0" prefHeight="34.0" prefWidth="600.0">
-               <children>
-                  <Label prefHeight="26.0" prefWidth="101.0" text="Miejscowość:">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="miejscowosc" style="-fx-font-weight: bold;" text="Label">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets right="160.0" />
-               </padding>
-            </HBox>
+            </VBox>
          </children>
-      </VBox>
-   </center>
-   <bottom>
-      <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="392.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Edytuj">
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Usuń">
-               <HBox.margin>
-                  <Insets right="165.0" />
-               </HBox.margin>
-            </Button>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Wyjdź">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-         </children>
-         <padding>
-            <Insets left="20.0" right="20.0" />
-         </padding>
       </HBox>
-   </bottom>
-</BorderPane>
+      <HBox layoutY="50.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Imię">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <Label fx:id="l_imie" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+               </children>
+            </VBox>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="20.0" />
+         </opaqueInsets>
+      </HBox>
+      <HBox layoutY="100.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Nazwisko">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <Label fx:id="l_nazwisko" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="150.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Wiek">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <Label fx:id="l_wiek" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="200.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Ulica">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <Label fx:id="l_ulica" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="250.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Numer domu">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <Label fx:id="l_numer_domu" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="300.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Numer mieszkania">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <Label fx:id="l_numer_mieszkania" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="350.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="79.0" prefWidth="176.0" text="Miejscowość">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="105.0" prefWidth="181.0">
+               <children>
+                  <Label fx:id="l_miejscowosc" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutY="438.0" prefHeight="37.0" prefWidth="432.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="36.0" prefWidth="216.0" />
+            <VBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="184.0">
+               <children>
+                  <Button fx:id="p_ok" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#zamknijOkno" prefHeight="25.0" prefWidth="64.0" text="Zamknij" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</Pane>

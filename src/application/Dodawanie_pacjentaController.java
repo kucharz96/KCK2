@@ -39,6 +39,7 @@ public class Dodawanie_pacjentaController {
 	//Stworzenie instancji na pacjenta stworzonego w tym kontrolerze
 	@FXML
 	private ObservableList<Pacjent> pacjent;
+	private Centrala C;
 	//Nale¿y j¹ wykonaæ, by nadaæ jakby eventy na poszczególne pola (wykonuje siê dla wszystkich FXML), jest to taka inicjalizacyjna
 	//Inicjalizuje ona w³asciwoœci dla FXMLi
 	@FXML
@@ -133,8 +134,15 @@ public class Dodawanie_pacjentaController {
 					errorWindow();
 				}
 			Pacjent p = new Pacjent(null, null, null, 0, null, 0, 0, null);
-			if (p.setPesel(p_pesel.getText()) == true)
-			{	
+			for (Pacjent P : C.getInstance().getPacjenci()) {
+					if(p_pesel.getText().equals(P.getPesel()))
+					{
+						peselError();
+						return;
+				
+					}
+			}
+	
 				p.setPesel(p_pesel.getText());
 				p.setImie(p_imie.getText());
 				p.setNazwisko(p_nazwisko.getText());
@@ -150,15 +158,11 @@ public class Dodawanie_pacjentaController {
 				informationWindow();
 				
 			}
-			else
-			{
-				peselError();
-			}
-			
-		}
 
 			
 	}
+
+			
 	public void informationWindow()
 	{
 		Alert alert = new Alert(AlertType.INFORMATION);
