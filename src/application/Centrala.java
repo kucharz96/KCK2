@@ -33,11 +33,11 @@ public class Centrala {
 		addLekarz(new Lekarz("cos96", "ser123", "Magda", "Nowakowska", 45, 200, "211111111"));
 		addLekarz(new Lekarz("coswddasd", "ser123", "Eliza", "Nowakowska", 45, 200, "211111111"));
 
-		addWizyta(new Wizyta(0, "96123934567", "choryssssssssssssssssss", "12-12-2018 12:00"));
-		addWizyta(new Wizyta(1, "96123983764", "chory", "12-12-2018 12:20"));
+		addWizyta(new Wizyta(0, "96123934567", "jeden", "12-12-2018 12:00"));
+		addWizyta(new Wizyta(1, "96123983764", "dwa", "12-12-2018 12:20"));
 
-		addWizyta(new Wizyta(2, "96123934567", "chorysssssssssssss", "12-12-2018 12:00"));
-		addWizyta(new Wizyta(3, "96123983764", "chory", "12-12-2018 12:20"));
+		addWizyta(new Wizyta(2, "96123934567", "trzy", "12-12-2018 12:00"));
+		addWizyta(new Wizyta(3, "96123983764", "cztery", "12-12-2018 12:20"));
 
 
 

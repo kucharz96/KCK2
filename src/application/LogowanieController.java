@@ -40,7 +40,30 @@ public class LogowanieController {
 			    stageTheEventSourceNodeBelongs.setScene(scene);
 			    stageTheEventSourceNodeBelongs.setTitle("Panel rejestracji");
 			    break;
+			    
+			default:
 				
+			    
+			    
+			    for(Lekarz a:Centrala.getInstance().getLekarze()) {
+			    	if(a.getLogin().equals(login.getText())) {
+			    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Panel_lekarza.fxml"));
+			    		Panel_lekarzaController.id = a.getId();
+
+						BorderPane root1 = (BorderPane)fxmlLoader.load();
+
+						Scene scene1 = new Scene(root1,900,700);
+					    Stage stageTheEventSourceNodeBelongs1 = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			    		stageTheEventSourceNodeBelongs1.setTitle("Panel lekarza; zalogowany: dr " + a.getImie() + " " + a.getNazwisko());
+			    		
+			    		stageTheEventSourceNodeBelongs1.setScene(scene1);
+			    		break;
+			    	}
+			    	
+			    }
+			    
+			    
+			    break;
 		}
 		
 		
