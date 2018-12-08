@@ -346,7 +346,7 @@ public class RejestracjaController {
 			controller2.setItems(pacjenci.getItems());
 		    controller.getItems(pacjenci.getSelectionModel().getSelectedItem());
 			stage.setScene(scene);
-		    stage.setTitle("Dodaj pacjenta");	
+		    stage.setTitle("Edytuj pacjenta");	
 		    stage.initModality(Modality.WINDOW_MODAL);
 		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
 		    
@@ -371,8 +371,14 @@ public class RejestracjaController {
 		
 		if (result.get() == tak){
 			Centrala.getInstance().removePacjent(pacjenci.getSelectionModel().getSelectedIndex());
+			
+			for(Iterator<Wizyta> iter = wizyty.getItems().iterator(); iter.hasNext();) {
+				Wizyta a = iter.next();
+				if(a.getPesel_pacjenta().equals(pacjenci.getSelectionModel().getSelectedItem().getPesel())) 
+					iter.remove();
+				
+			}
 			pacjenci.getItems().remove(pacjenci.getSelectionModel().getSelectedIndex());
-		    
 		   
 		} 
 		else if (result.get() == nie);

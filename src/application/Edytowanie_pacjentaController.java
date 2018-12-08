@@ -163,6 +163,10 @@ public class Edytowanie_pacjentaController {
 				informationWindow();
 	
 			}
+			else
+			{
+				peselError();
+			}
 			}
 			
 		}

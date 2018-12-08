@@ -30,8 +30,6 @@
                 </Menu>
                   <Menu mnemonicParsing="false" text="Nowy">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#p_dodaj" text="Pacjent" />
-                        <MenuItem mnemonicParsing="false" onAction="#w_dodaj" text="Wizyta" />
                         <MenuItem mnemonicParsing="false" onAction="#s_dodaj" text="Skierowanie" />
                         <MenuItem mnemonicParsing="false" onAction="#r_dodaj" text="Recepta" />
                      </items>
@@ -77,8 +75,6 @@
                            <contextMenu>
                               <ContextMenu fx:id="c_menu" onShown="#test">
                                 <items>
-                                  <MenuItem mnemonicParsing="false" onAction="#p_edytuj" text="Edytuj..." />
-                                    <MenuItem mnemonicParsing="false" onAction="#p_usun" text="Usuń" />
                                     <MenuItem mnemonicParsing="false" onAction="#p_szczegoly" text="Szczegóły..." />
                                 </items>
                               </ContextMenu>
@@ -104,8 +100,6 @@
                            <contextMenu>
                               <ContextMenu fx:id="c_menu1" onShown="#test">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#w_edytuj" text="Edytuj..." />
-                                    <MenuItem mnemonicParsing="false" onAction="#w_usun" text="Usuń" />
                                     <MenuItem mnemonicParsing="false" onAction="#w_szczegoly" text="Szczegóły..." />
                                  </items>
                               </ContextMenu>
@@ -131,8 +125,6 @@
                            <contextMenu>
                               <ContextMenu fx:id="c_menu2" onShown="#test">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#s_edytuj" text="Edytuj..." />
-                                    <MenuItem mnemonicParsing="false" onAction="#s_usun" text="Usuń" />
                                     <MenuItem mnemonicParsing="false" onAction="#s_szczegoly" text="Szczegóły..." />
                                  </items>
                               </ContextMenu>
@@ -158,8 +150,6 @@
                            <contextMenu>
                               <ContextMenu fx:id="c_menu3" onShown="#test">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#r_edytuj" text="Edytuj..." />
-                                    <MenuItem mnemonicParsing="false" onAction="#r_usun" text="Usuń" />
                                     <MenuItem mnemonicParsing="false" onAction="#r_szczegoly" text="Szczegóły..." />
                                  </items>
                               </ContextMenu>

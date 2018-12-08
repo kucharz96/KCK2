@@ -50,7 +50,7 @@ public class Panel_lekarzaController {
 	public TextField pesel_filtr;
 	public Label etykieta_filtr;
 	public MenuBar bar;
-	
+	private Centrala C;
 	public ContextMenu c_menu;
 	public ContextMenu c_menu1;
 	public ContextMenu c_menu2;
@@ -80,9 +80,6 @@ public class Panel_lekarzaController {
 	public ObservableList<Wizyta> lista1;
 	public ObservableList<Skierowanie> lista2;
 	public ObservableList<Recepta> lista3;
-	
-    
-
 	
 	
 	
@@ -238,10 +235,7 @@ public class Panel_lekarzaController {
 				}
             }
         });
-		
-    
-		
-	
+
 		
 	}
 	//////////////////////////////////////////////////////////////WYLOGOWANIE/////////////////////////////////////////////////////////////////////////////
@@ -473,7 +467,24 @@ public class Panel_lekarzaController {
 
 	public void s_dodaj() {
 		System.out.println("bbbbb");
-		
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dodawanie_skierowania.fxml"));
+			Pane root = (Pane)fxmlLoader.load();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
+			Dodawanie_skierowaniaController controller = fxmlLoader.getController();
+		    controller.setItems(skierowania.getItems());
+			stage.setScene(scene);
+		    stage.setTitle("Dodaj skierowanie");	
+		    stage.initModality(Modality.WINDOW_MODAL);
+		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
+
+		    stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void s_edytuj() {
