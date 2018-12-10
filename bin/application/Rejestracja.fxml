@@ -100,7 +100,6 @@
                             <TableColumn fx:id="w_id_p" prefWidth="120.79998779296875" text="Id lekarza" />
                               <TableColumn fx:id="w_data" minWidth="0.0" prefWidth="279.2000427246094" text="Data" />
                               <TableColumn fx:id="w_opis" minWidth="0.0" prefWidth="300.800048828125" text="Opis" />
-                              <TableColumn fx:id="w_id1" prefWidth="120.79998779296875" text="Id lekarza" />
                           </columns>
                            <contextMenu>
                               <ContextMenu fx:id="c_menu1" onShown="#test">
@@ -127,7 +126,6 @@
                               <TableColumn fx:id="s_id_p" prefWidth="120.79998779296875" text="Id lekarza" />
                               <TableColumn fx:id="s_data" minWidth="0.0" prefWidth="279.2000427246094" text="Data" />
                               <TableColumn fx:id="s_opis" minWidth="0.0" prefWidth="300.800048828125" text="Opis" />
-                              <TableColumn fx:id="w_id11" prefWidth="120.79998779296875" text="Id lekarza" />
                            </columns>
                            <contextMenu>
                               <ContextMenu fx:id="c_menu2" onShown="#test">
@@ -154,7 +152,6 @@
                               <TableColumn fx:id="r_id_p" prefWidth="120.79998779296875" text="Id lekarza" />
                               <TableColumn fx:id="r_data" minWidth="0.0" prefWidth="279.2000427246094" text="Data" />
                               <TableColumn fx:id="r_opis" minWidth="0.0" prefWidth="300.800048828125" text="Opis" />
-                              <TableColumn fx:id="w_id12" prefWidth="120.79998779296875" text="Id lekarza" />
                            </columns>
                            <contextMenu>
                               <ContextMenu fx:id="c_menu3" onShown="#test">
