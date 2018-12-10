@@ -24,7 +24,7 @@ public class Centrala {
 				"Lodz"));
 		addPacjent(new Pacjent("96123983713", "Rafon", "Tracz", 12, "Rafonowo", 6, 16,
 				"Lodz"));
-		addPacjent(new Pacjent("96123983713", "Rafon", "Tracz", 12, "Rafonowo", 6, 16,
+		addPacjent(new Pacjent("96123983714", "Rafon", "Tracz", 12, "Rafonowo", 6, 16,
 				"Lodz"));
        addLekarz(new Lekarz("kucharz96", "1234", "Jan", "Wacek", 35, 100, "111111111"));
 		
@@ -34,29 +34,29 @@ public class Centrala {
 		addLekarz(new Lekarz("coswddasd", "ser123", "Eliza", "Nowakowska", 45, 200, "211111111"));
 		addLekarz(new Lekarz("123", "123", "Kamilo", "Kamco", 45, 200, "211111112"));
 
-		addWizyta(new Wizyta(0, "96123934567", "jeden", "12-12-2018 12:00"));
-		addWizyta(new Wizyta(1, "96123983764", "dwa", "12-12-2018 12:20"));
+		addWizyta(new Wizyta(0, "96113983712", "jeden", "12-12-2018 12:00"));
+		addWizyta(new Wizyta(1, "96113983711", "dwa", "12-12-2018 12:20"));
 
-		addWizyta(new Wizyta(2, "96123934567", "trzy", "12-12-2018 12:00"));
-		addWizyta(new Wizyta(3, "96123983764", "cztery", "12-12-2018 12:20"));
-
-
-
-		addSkierowanie(new Skierowanie(0, "96123934567", "chorysssssssssssss", "z³amanie"));
-		addSkierowanie(new Skierowanie(1, "96123983764", "chory", "z³amany piszczel przez Rafona"));
-
-		addSkierowanie(new Skierowanie(2, "96123934567", "chorysssssssssssss", "z³amanie"));
-		addSkierowanie(new Skierowanie(3, "96123983764", "chory", "z³amany piszczel przez Rafona"));
+		addWizyta(new Wizyta(2, "96113983712", "trzy", "12-12-2018 12:00"));
+		addWizyta(new Wizyta(3, "96113983713", "cztery", "12-12-2018 12:20"));
 
 
-		addRecepta(new Recepta(0, "96123934567", "chorysssssssssssss"));
-		addRecepta(new Recepta(1, "96123983764", "chory"));
 
-		addRecepta(new Recepta(2, "96123934567", "chorysssssssssssss"));
+		addSkierowanie(new Skierowanie(0, "96113983712", "chory", "z³amanie"));
+		addSkierowanie(new Skierowanie(1, "96113983713", "chory", "skrêcona kostka"));
 
-		addRecepta(new Recepta(2, "96123983764", "chory"));
+		addSkierowanie(new Skierowanie(2, "96113983711", "chory", "z³amanie koœci udowej"));
+		addSkierowanie(new Skierowanie(3, "96113983712", "chory", "z³amany piszczel"));
 
-		addRecepta(new Recepta(3, "96123983764", "chory"));
+
+		addRecepta(new Recepta(0, "96113983712", "chorysssssssssssss"));
+		addRecepta(new Recepta(1, "96113983712", "chory"));
+
+		addRecepta(new Recepta(2, "96113983714", "chorysssssssssssss"));
+
+		addRecepta(new Recepta(2, "96113983711", "chory"));
+
+		addRecepta(new Recepta(3, "96113983713", "chory"));
 		
 		
 	}
