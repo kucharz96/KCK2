@@ -3,12 +3,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Szczegoly_wizytyController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="315.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Szczegoly_wizytyController">
    <children>
       <HBox prefHeight="37.0" prefWidth="432.0">
          <children>
@@ -23,7 +24,7 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="pacjent" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="pacjent" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
@@ -41,7 +42,7 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="lekarz" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="lekarz" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
@@ -62,7 +63,7 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="data" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="data" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
@@ -80,11 +81,25 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="godzina" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="godzina" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
+      <AnchorPane layoutY="269.0" prefHeight="46.0" prefWidth="432.0" style="-fx-background-color: white;">
+         <children>
+            <HBox prefHeight="0.0" prefWidth="432.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="36.0" prefWidth="216.0" />
+                  <VBox alignment="CENTER" prefHeight="36.0" prefWidth="184.0">
+                     <children>
+                        <Button fx:id="p_ok" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#zamknijOkno" prefHeight="25.0" prefWidth="64.0" text="Zamknij" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
       <HBox layoutY="200.0" prefHeight="37.0" prefWidth="432.0">
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
@@ -98,17 +113,7 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="opis" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-      <HBox layoutY="274.0" prefHeight="0.0" prefWidth="432.0">
-         <children>
-            <VBox alignment="CENTER" prefHeight="36.0" prefWidth="216.0" />
-            <VBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="184.0">
-               <children>
-                  <Button fx:id="p_ok" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#zamknijOkno" prefHeight="25.0" prefWidth="64.0" text="Zamknij" />
+                  <Label fx:id="opis" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
