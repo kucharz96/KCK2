@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -72,19 +73,23 @@
             </VBox>
          </children>
       </HBox>
-      <HBox layoutY="300.0" prefHeight="37.0" prefWidth="432.0">
+      <AnchorPane layoutY="317.0" prefHeight="49.0" prefWidth="432.0" style="-fx-background-color: white;">
          <children>
-            <VBox alignment="CENTER" prefHeight="36.0" prefWidth="216.0">
+            <HBox prefHeight="37.0" prefWidth="432.0">
                <children>
-                  <Button fx:id="p_anuluj" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#zamknijOkno" prefHeight="25.0" prefWidth="80.0" text="Anuluj" />
+                  <VBox alignment="CENTER" prefHeight="36.0" prefWidth="216.0">
+                     <children>
+                        <Button fx:id="p_anuluj" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#zamknijOkno" prefHeight="25.0" prefWidth="80.0" text="Anuluj" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="184.0">
+                     <children>
+                        <Button fx:id="p_ok" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="64.0" text="OK" />
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-            <VBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="184.0">
-               <children>
-                  <Button fx:id="p_ok" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="64.0" text="OK" />
-               </children>
-            </VBox>
+            </HBox>
          </children>
-      </HBox>
+      </AnchorPane>
    </children>
 </Pane>

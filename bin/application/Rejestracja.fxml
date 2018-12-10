@@ -32,8 +32,6 @@
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#p_dodaj" text="Pacjent" />
                         <MenuItem mnemonicParsing="false" onAction="#w_dodaj" text="Wizyta" />
-                        <MenuItem mnemonicParsing="false" onAction="#s_dodaj" text="Skierowanie" />
-                        <MenuItem mnemonicParsing="false" onAction="#r_dodaj" text="Recepta" />
                         <MenuItem mnemonicParsing="false" onAction="#l_dodaj" text="Lekarz" />
                      </items>
                   </Menu>
@@ -51,7 +49,7 @@
                         <Insets left="35.0" top="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="pesel_filtr" onKeyReleased="#fuck" />
+                  <TextField fx:id="pesel_filtr" onKeyReleased="#filtr" />
                </children>
             </HBox>
          </children>
@@ -130,7 +128,6 @@
                            <contextMenu>
                               <ContextMenu fx:id="c_menu2" onShown="#test">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#s_edytuj" text="Edytuj..." />
                                     <MenuItem mnemonicParsing="false" onAction="#s_usun" text="Usuń" />
                                     <MenuItem mnemonicParsing="false" onAction="#s_szczegoly" text="Szczegóły..." />
                                  </items>
@@ -156,7 +153,6 @@
                            <contextMenu>
                               <ContextMenu fx:id="c_menu3" onShown="#test">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#r_edytuj" text="Edytuj..." />
                                     <MenuItem mnemonicParsing="false" onAction="#r_usun" text="Usuń" />
                                     <MenuItem mnemonicParsing="false" onAction="#r_szczegoly" text="Szczegóły..." />
                                  </items>

@@ -94,7 +94,7 @@ public class RejestracjaController {
 	}
 	//////////////////////////////////////////////////////////////FILTR/////////////////////////////////////////////////////////////////////////////
 
-	public void fuck(){
+	public void filtr(){
 		List<Pacjent> tmp1 = new ArrayList<>();
 		List<Wizyta> tmp2 = new ArrayList<>();
 		List<Skierowanie> tmp3 = new ArrayList<>();
@@ -393,7 +393,7 @@ public class RejestracjaController {
 		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
-	    stage.setTitle("Szczegó³y");	
+	    stage.setTitle("Szczegó³y pacjenta");	
 	    stage.initModality(Modality.WINDOW_MODAL);
 	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
 	    
@@ -482,7 +482,7 @@ public class RejestracjaController {
 		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
-	    stage.setTitle("Szczegó³y");	
+	    stage.setTitle("Szczegó³y wizyty");	
 	    stage.initModality(Modality.WINDOW_MODAL);
 	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
 	    
@@ -491,14 +491,7 @@ public class RejestracjaController {
 	}
 	//////////////////////////////////////////////////////////////DLA SKIEROWAN/////////////////////////////////////////////////////////////////////////////
 
-	public void s_dodaj() {
-		System.out.println("bbbbb");
-		
-	}
 	
-	public void s_edytuj() {
-		System.out.println(skierowania.getSelectionModel().getSelectedItem().getPesel_pacjenta());
-	}
 	
 	public void s_usun() {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -531,7 +524,7 @@ public class RejestracjaController {
 		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
-	    stage.setTitle("Szczegó³y");	
+	    stage.setTitle("Szczegó³y skierowania");	
 	    stage.initModality(Modality.WINDOW_MODAL);
 	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
 	    
@@ -540,33 +533,7 @@ public class RejestracjaController {
 		
 	}
 	//////////////////////////////////////////////////////////////DLA RECEPT/////////////////////////////////////////////////////////////////////////////
-	public void r_dodaj() {
-		System.out.println("bbbbb");
-		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dodawanie_recepty.fxml"));
-			Pane root = (Pane)fxmlLoader.load();
-			Scene scene = new Scene(root);
-			Stage stage = new Stage();
-			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
-			Dodawanie_receptyController controller = fxmlLoader.getController();
-		    controller.setItems(recepty.getItems());
-			stage.setScene(scene);
-		    stage.setTitle("Dodaj pacjenta");	
-		    stage.initModality(Modality.WINDOW_MODAL);
-		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
-		    
-		    stage.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-	}
-	
-	public void r_edytuj() {
-		System.out.println(recepty.getSelectionModel().getSelectedItem().getPesel_pacjenta());
-	}
+
 	
 	public void r_usun() {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -599,7 +566,7 @@ public class RejestracjaController {
 		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
-	    stage.setTitle("Szczegó³y");	
+	    stage.setTitle("Szczegó³y recepty");	
 	    stage.initModality(Modality.WINDOW_MODAL);
 	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
 	    
@@ -646,7 +613,7 @@ public class RejestracjaController {
 			controller2.setItems(lekarze.getItems());
 		    controller.getItems(lekarze.getSelectionModel().getSelectedItem());
 			stage.setScene(scene);
-		    stage.setTitle("Dodaj pacjenta");	
+		    stage.setTitle("Edytuj lekarza");	
 		    stage.initModality(Modality.WINDOW_MODAL);
 		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
 		    
@@ -709,7 +676,7 @@ public class RejestracjaController {
 		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
-	    stage.setTitle("Szczegó³y");	
+	    stage.setTitle("Szczegó³y lekarza");	
 	    stage.initModality(Modality.WINDOW_MODAL);
 	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
 	    

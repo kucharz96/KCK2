@@ -48,7 +48,7 @@
                         <Insets left="35.0" top="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="pesel_filtr" onKeyReleased="#fuck" />
+                  <TextField fx:id="pesel_filtr" onKeyReleased="#filtr" />
                </children>
             </HBox>
          </children>

@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -10,7 +11,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Szczegoly_pacjentaController">
    <children>
-      <HBox prefHeight="37.0" prefWidth="432.0">
+      <HBox layoutY="42.0" prefHeight="37.0" prefWidth="432.0">
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
@@ -23,12 +24,12 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="l_pesel" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="l_pesel" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <HBox layoutY="50.0" prefHeight="37.0" prefWidth="432.0">
+      <HBox layoutY="92.0" prefHeight="37.0" prefWidth="432.0">
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
@@ -41,7 +42,7 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="l_imie" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="l_imie" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
@@ -49,7 +50,7 @@
             <Insets bottom="20.0" />
          </opaqueInsets>
       </HBox>
-      <HBox layoutY="100.0" prefHeight="37.0" prefWidth="432.0">
+      <HBox layoutY="142.0" prefHeight="37.0" prefWidth="432.0">
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
@@ -62,12 +63,12 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="l_nazwisko" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="l_nazwisko" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <HBox layoutY="150.0" prefHeight="37.0" prefWidth="432.0">
+      <HBox layoutY="192.0" prefHeight="37.0" prefWidth="432.0">
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
@@ -80,12 +81,12 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="l_wiek" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="l_wiek" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <HBox layoutY="200.0" prefHeight="37.0" prefWidth="432.0">
+      <HBox layoutY="242.0" prefHeight="37.0" prefWidth="432.0">
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
@@ -98,12 +99,12 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="l_ulica" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="l_ulica" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <HBox layoutY="250.0" prefHeight="37.0" prefWidth="432.0">
+      <HBox layoutY="292.0" prefHeight="37.0" prefWidth="432.0">
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
@@ -116,12 +117,12 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="l_numer_domu" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="l_numer_domu" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <HBox layoutY="300.0" prefHeight="37.0" prefWidth="432.0">
+      <HBox layoutY="342.0" prefHeight="37.0" prefWidth="432.0">
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
@@ -134,12 +135,12 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="l_numer_mieszkania" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="l_numer_mieszkania" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <HBox layoutY="350.0" prefHeight="37.0" prefWidth="432.0">
+      <HBox layoutY="392.0" prefHeight="37.0" prefWidth="432.0">
          <children>
             <VBox alignment="CENTER" prefHeight="110.0" prefWidth="219.0">
                <children>
@@ -152,20 +153,24 @@
             </VBox>
             <VBox prefHeight="105.0" prefWidth="181.0">
                <children>
-                  <Label fx:id="l_miejscowosc" alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
+                  <Label fx:id="l_miejscowosc" contentDisplay="CENTER" prefHeight="56.0" prefWidth="204.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <HBox layoutY="438.0" prefHeight="37.0" prefWidth="432.0">
+      <AnchorPane layoutY="442.0" prefHeight="48.0" prefWidth="432.0" style="-fx-background-color: white;">
          <children>
-            <VBox alignment="CENTER" prefHeight="36.0" prefWidth="216.0" />
-            <VBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="184.0">
+            <HBox prefHeight="37.0" prefWidth="432.0">
                <children>
-                  <Button fx:id="p_ok" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#zamknijOkno" prefHeight="25.0" prefWidth="64.0" text="Zamknij" />
+                  <VBox alignment="CENTER" prefHeight="36.0" prefWidth="216.0" />
+                  <VBox alignment="CENTER" prefHeight="36.0" prefWidth="184.0">
+                     <children>
+                        <Button fx:id="p_ok" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#zamknijOkno" prefHeight="25.0" prefWidth="64.0" text="Zamknij" />
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
+            </HBox>
          </children>
-      </HBox>
+      </AnchorPane>
    </children>
 </Pane>

@@ -18,7 +18,7 @@ public class Main extends Application {
 		try {
 			guiStage = primaryStage;
 			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("Logowanie.fxml"));
-			Scene scene = new Scene(root,400,220);
+			Scene scene = new Scene(root,400,160);
 
 			primaryStage.setScene(scene);
 			primaryStage.show();

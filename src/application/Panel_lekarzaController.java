@@ -85,7 +85,7 @@ public class Panel_lekarzaController {
 	
 	//////////////////////////////////////////////////////////////FILTR/////////////////////////////////////////////////////////////////////////////
 
-	public void fuck(){
+	public void filtr(){
 		List<Pacjent> tmp1 = new ArrayList<>();
 		List<Wizyta> tmp2 = new ArrayList<>();
 		List<Skierowanie> tmp3 = new ArrayList<>();
@@ -287,77 +287,7 @@ public class Panel_lekarzaController {
 		
 	}	
 	//////////////////////////////////////////////////////////////DLA PACJENTA/////////////////////////////////////////////////////////////////////////////
-	public void p_dodaj() {
-		System.out.println("bbbbb");
-		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dodawanie_pacjenta.fxml"));
-			Pane root = (Pane)fxmlLoader.load();
-			Scene scene = new Scene(root);
-			Stage stage = new Stage();
-			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
-			Dodawanie_pacjentaController controller = fxmlLoader.getController();
-		    controller.setItems(pacjenci.getItems());
-			stage.setScene(scene);
-		    stage.setTitle("Dodaj pacjenta");	
-		    stage.initModality(Modality.WINDOW_MODAL);
-		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
-		    
-		    stage.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
 	
-	public void p_edytuj() {
-		System.out.println(pacjenci.getSelectionModel().getSelectedItem().getPesel());
-		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Edytowanie_pacjenta.fxml"));
-			Pane root = (Pane)fxmlLoader.load();
-			Scene scene = new Scene(root);
-			Stage stage = new Stage();
-			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
-			Edytowanie_pacjentaController controller = fxmlLoader.getController();
-			Edytowanie_pacjentaController controller2 = fxmlLoader.getController();
-			Edytowanie_pacjentaController controllerIndex = fxmlLoader.getController();
-			//Odbiór i przekazanie danych
-			controllerIndex.setIndex(pacjenci.getSelectionModel().selectedIndexProperty().get());
-			controller2.setItems(pacjenci.getItems());
-		    controller.getItems(pacjenci.getSelectionModel().getSelectedItem());
-			stage.setScene(scene);
-		    stage.setTitle("Dodaj pacjenta");	
-		    stage.initModality(Modality.WINDOW_MODAL);
-		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
-		    
-		    stage.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	public void p_usun() throws IOException {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Potwierdzenie usuniêcia pacjenta");
-		alert.setHeaderText(null);
-		alert.setContentText("Czy usun¹æ pacjenta?");
-
-		ButtonType tak = new ButtonType("Tak");
-		ButtonType nie = new ButtonType("Nie");
-		alert.getButtonTypes().setAll(tak, nie);
-
-		Optional<ButtonType> result = alert.showAndWait();
-		
-		if (result.get() == tak){
-			Centrala.getInstance().removePacjent(pacjenci.getSelectionModel().getSelectedIndex());
-			pacjenci.getItems().remove(pacjenci.getSelectionModel().getSelectedIndex());
-		    
-		   
-		} 
-		else if (result.get() == nie);
-		
-	}
 	public void p_szczegoly() throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_pacjenta.fxml"));
 		Pane root = (Pane)fxmlLoader.load();
@@ -367,7 +297,7 @@ public class Panel_lekarzaController {
 		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
-	    stage.setTitle("Szczegó³y");	
+	    stage.setTitle("Szczegó³y pacjenta");	
 	    stage.initModality(Modality.WINDOW_MODAL);
 	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
 	    
@@ -376,76 +306,7 @@ public class Panel_lekarzaController {
 	}
 	//////////////////////////////////////////////////////////////DLA WIZYT/////////////////////////////////////////////////////////////////////////////
 
-	public void w_dodaj() {
-		System.out.println("bbbbb");
-		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dodawanie_wizyty.fxml"));
-			Pane root = (Pane)fxmlLoader.load();
-			Scene scene = new Scene(root);
-			Stage stage = new Stage();
-			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
-			Dodawanie_wizytyController controller = fxmlLoader.getController();
-		    controller.setItems(wizyty.getItems());
-			stage.setScene(scene);
-		    stage.setTitle("Dodaj wizytê");	
-		    stage.initModality(Modality.WINDOW_MODAL);
-		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
-		    
-		    stage.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-	public void w_edytuj() {
-		System.out.println(wizyty.getSelectionModel().getSelectedItem().getPesel_pacjenta());
-		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Edytowanie_wizyty.fxml"));
-			Pane root = (Pane)fxmlLoader.load();
-			Scene scene = new Scene(root);
-			Stage stage = new Stage();
-			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
-			Edytowanie_wizytyController controller = fxmlLoader.getController();
-			Edytowanie_wizytyController controller2 = fxmlLoader.getController();
-			Edytowanie_wizytyController controllerIndex = fxmlLoader.getController();
-			//Odbiór i przekazanie danych
-			controllerIndex.setIndex(wizyty.getSelectionModel().selectedIndexProperty().get());
-			controller2.setItems(wizyty.getItems());
-		    controller.getItems(wizyty.getSelectionModel().getSelectedItem());
-			stage.setScene(scene);
-		    stage.setTitle("Edytuj wizytê");	
-		    stage.initModality(Modality.WINDOW_MODAL);
-		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
-		    
-		    stage.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
-	public void w_usun() {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Potwierdzenie usuniêcia wizyty");
-		alert.setHeaderText(null);
-		alert.setContentText("Czy usun¹æ wizytê?");
-
-		ButtonType tak = new ButtonType("Tak");
-		ButtonType nie = new ButtonType("Nie");
-		alert.getButtonTypes().setAll(tak, nie);
-
-		Optional<ButtonType> result = alert.showAndWait();
-		
-		if (result.get() == tak){
-			Centrala.getInstance().removeWizyta(wizyty.getSelectionModel().getSelectedIndex());
-			wizyty.getItems().remove(wizyty.getSelectionModel().getSelectedIndex());
-		    
-		   
-		} 
-		else if (result.get() == nie);
-		
-	}
 	public void w_szczegoly() throws IOException {
 		System.out.println("cccc");
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_wizyty.fxml"));
@@ -456,7 +317,7 @@ public class Panel_lekarzaController {
 		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
-	    stage.setTitle("Szczegó³y");	
+	    stage.setTitle("Szczegó³y wizyty");	
 	    stage.initModality(Modality.WINDOW_MODAL);
 	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
 	    
@@ -487,31 +348,7 @@ public class Panel_lekarzaController {
 		}
 	}
 	
-	public void s_edytuj() {
-		System.out.println(skierowania.getSelectionModel().getSelectedItem().getPesel_pacjenta());
-	}
 	
-	public void s_usun() {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Potwierdzenie usuniêcia skierowania");
-		alert.setHeaderText(null);
-		alert.setContentText("Czy usun¹æ skierowanie?");
-
-		ButtonType tak = new ButtonType("Tak");
-		ButtonType nie = new ButtonType("Nie");
-		alert.getButtonTypes().setAll(tak, nie);
-
-		Optional<ButtonType> result = alert.showAndWait();
-		
-		if (result.get() == tak){
-			Centrala.getInstance().removeSkierowanie(skierowania.getSelectionModel().getSelectedIndex());
-			skierowania.getItems().remove(skierowania.getSelectionModel().getSelectedIndex());
-		    
-		   
-		} 
-		else if (result.get() == nie);
-		
-	}
 	public void s_szczegoly() throws IOException {
 		System.out.println("cccc");
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_skierowania.fxml"));
@@ -522,7 +359,7 @@ public class Panel_lekarzaController {
 		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
-	    stage.setTitle("Szczegó³y");	
+	    stage.setTitle("Szczegó³y skierowania");	
 	    stage.initModality(Modality.WINDOW_MODAL);
 	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
 	    
@@ -542,7 +379,7 @@ public class Panel_lekarzaController {
 			Dodawanie_receptyController controller = fxmlLoader.getController();
 		    controller.setItems(recepty.getItems());
 			stage.setScene(scene);
-		    stage.setTitle("Dodaj pacjenta");	
+		    stage.setTitle("Dodaj receptê");	
 		    stage.initModality(Modality.WINDOW_MODAL);
 		    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
 		    
@@ -555,31 +392,8 @@ public class Panel_lekarzaController {
 		
 	}
 	
-	public void r_edytuj() {
-		System.out.println(recepty.getSelectionModel().getSelectedItem().getPesel_pacjenta());
-	}
-	
-	public void r_usun() {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Potwierdzenie usuniêcia recepty");
-		alert.setHeaderText(null);
-		alert.setContentText("Czy usun¹æ receptê?");
 
-		ButtonType tak = new ButtonType("Tak");
-		ButtonType nie = new ButtonType("Nie");
-		alert.getButtonTypes().setAll(tak, nie);
 
-		Optional<ButtonType> result = alert.showAndWait();
-		
-		if (result.get() == tak){
-			Centrala.getInstance().removeRecepta(recepty.getSelectionModel().getSelectedIndex());
-			recepty.getItems().remove(recepty.getSelectionModel().getSelectedIndex());
-		    
-		   
-		} 
-		else if (result.get() == nie);
-		
-	}
 	public void r_szczegoly() throws IOException {
 		System.out.println("cccc");
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_recepty.fxml"));
@@ -590,7 +404,7 @@ public class Panel_lekarzaController {
 		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
-	    stage.setTitle("Szczegó³y");	
+	    stage.setTitle("Szczegó³y recepty");	
 	    stage.initModality(Modality.WINDOW_MODAL);
 	    stage.initOwner((Stage) ((Stage)bar.getScene().getWindow()));
 	    
