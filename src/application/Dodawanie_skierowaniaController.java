@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.function.UnaryOperator;
 
 import javax.imageio.spi.RegisterableService;
@@ -36,7 +37,7 @@ import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 
 
-public class Dodawanie_skierowaniaController {
+public class Dodawanie_skierowaniaController extends MainController  {
 	@FXML
 	private TextArea r_opis;
 	@FXML
@@ -47,11 +48,10 @@ public class Dodawanie_skierowaniaController {
 	public Button p_ok, p_anuluj;
 	@FXML
 	private TextField r_cel;
-	private Centrala C;
 	private Panel_lekarzaController p;
 	private int id;
-	private ObservableList<Lekarz> lekarz = FXCollections.observableArrayList(C.getInstance().getLekarze());
-	private ObservableList<Pacjent> pacjent = FXCollections.observableArrayList(C.getInstance().getPacjenci());
+	private ObservableList<Lekarz> lekarz = FXCollections.observableArrayList(centrala.getLekarze());
+	private ObservableList<Pacjent> pacjent = FXCollections.observableArrayList(centrala.getPacjenci());
 	private ObservableList<Skierowanie> skierowanie;
 	//Nale¿y j¹ wykonaæ, by nadaæ jakby eventy na poszczególne pola (wykonuje siê dla wszystkich FXML), jest to taka inicjalizacyjna
 	//Inicjalizuje ona w³asciwoœci dla FXMLi
@@ -100,10 +100,18 @@ public class Dodawanie_skierowaniaController {
 
 				r.setOpis(r_opis.getText());
 				r.setCel(r_cel.getText());
-				Centrala.getInstance().addSkierowanie(r);
+				for(Iterator<Lekarz> iter = centrala.getLekarze().iterator(); iter.hasNext();) {
+					Lekarz a = iter.next();
+					
+					if(a.getId() == Integer.parseInt(id1[0])) {
+					a.addSkierowanie(r);
+
+					skierowanie.add(r);
+					break;
+					}
+				}
 
 				//Dodanie pacjenta//
-				skierowanie.add(r);
 				informationWindow();
 			
 		}

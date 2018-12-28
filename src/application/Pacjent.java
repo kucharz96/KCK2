@@ -12,7 +12,6 @@ public class Pacjent {
 	private int nr_domu;
 	private int nr_mieszkania;
 	private String miejscowosc;
-	private Centrala C;
 	
 	Pacjent(/*int id_lekarza, */String pesel, String imie, String nazwisko, int wiek, String ulica, int nr_domu, int nr_mieszkania,
 			String miejscowosc)
@@ -35,7 +34,7 @@ public class Pacjent {
 		String pattern = "[0-9]{11}";
 		if (pesel.matches(pattern))
 		{
-			for (Pacjent P1 : C.getInstance().getPacjenci()) {
+			for (Pacjent P1 : Centrala.getInstance().getPacjenci()) {
 				if (P1.getPesel().equals(pesel)) {
 					System.out.println("Pesel niepoprawny");
 					return false;

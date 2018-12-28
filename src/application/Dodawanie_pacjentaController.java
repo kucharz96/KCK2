@@ -30,7 +30,7 @@ import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 
 
-public class Dodawanie_pacjentaController {
+public class Dodawanie_pacjentaController extends MainController {
 	@FXML
 	private TextField p_pesel, p_imie, p_nazwisko, p_wiek, p_numer_domu, p_numer_mieszkania,p_ulica,
 	p_miejscowosc;
@@ -39,7 +39,6 @@ public class Dodawanie_pacjentaController {
 	//Stworzenie instancji na pacjenta stworzonego w tym kontrolerze
 	@FXML
 	private ObservableList<Pacjent> pacjent;
-	private Centrala C;
 	//Nale¿y j¹ wykonaæ, by nadaæ jakby eventy na poszczególne pola (wykonuje siê dla wszystkich FXML), jest to taka inicjalizacyjna
 	//Inicjalizuje ona w³asciwoœci dla FXMLi
 	@FXML
@@ -134,7 +133,7 @@ public class Dodawanie_pacjentaController {
 					errorWindow();
 				}
 			Pacjent p = new Pacjent(null, null, null, 0, null, 0, 0, null);
-			for (Pacjent P : C.getInstance().getPacjenci()) {
+			for (Pacjent P : centrala.getPacjenci()) {
 					if(p_pesel.getText().equals(P.getPesel()))
 					{
 						peselError();
@@ -151,7 +150,7 @@ public class Dodawanie_pacjentaController {
 				p.setNr_domu(Integer.parseInt(p_numer_domu.getText()));
 				p.setNr_mieszkania(Integer.parseInt(p_numer_mieszkania.getText()));
 				p.setMiejscowosc(p_miejscowosc.getText());
-				Centrala.getInstance().addPacjent(p);
+				centrala.addPacjent(p);
 
 				//Dodanie pacjenta//
 				pacjent.add(p);

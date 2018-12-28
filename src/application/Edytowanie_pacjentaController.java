@@ -32,7 +32,7 @@ import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 
 
-public class Edytowanie_pacjentaController {
+public class Edytowanie_pacjentaController extends MainController {
 	@FXML
 	private TextField p_pesel, p_imie, p_nazwisko, p_wiek, p_numer_domu, p_numer_mieszkania,p_ulica,
 	p_miejscowosc;
@@ -41,7 +41,6 @@ public class Edytowanie_pacjentaController {
 	//Stworzenie instancji na pacjenta stworzonego w tym kontrolerze]
 	private int index;
 	private ObservableList<Pacjent> pacjent_lista;
-	private Centrala C;
 	//Nale¿y j¹ wykonaæ, by nadaæ jakby eventy na poszczególne pola (wykonuje siê dla wszystkich FXML), jest to taka inicjalizacyjna
 	//Inicjalizuje ona w³asciwoœci dla FXMLi
 	@FXML
@@ -137,8 +136,8 @@ public class Edytowanie_pacjentaController {
 					errorWindow();
 				}
 			Pacjent p = new Pacjent(null, null, null, 0, null, 0, 0, null);
-			Pacjent PP = C.getInstance().getPacjenci().get(index);
-			for(Pacjent P1: C.getInstance().getPacjenci())
+			Pacjent PP = centrala.getPacjenci().get(index);
+			for(Pacjent P1: centrala.getPacjenci())
 			{
 				if (P1.getPesel().equals(p_pesel) && !PP.getPesel().equals(P1.getPesel()))
 				{

@@ -95,9 +95,10 @@
                           <columns>
                               <TableColumn fx:id="w_id" prefWidth="44.000001549720764" text="Id" />
                             <TableColumn fx:id="w_pesel" prefWidth="152.0000228881836" text="Pesel" />
-                            <TableColumn fx:id="w_id_p" prefWidth="120.79998779296875" text="Id lekarza" />
-                              <TableColumn fx:id="w_data" minWidth="0.0" prefWidth="279.2000427246094" text="Data" />
-                              <TableColumn fx:id="w_opis" minWidth="0.0" prefWidth="300.800048828125" text="Opis" />
+                            <TableColumn fx:id="w_id_p" prefWidth="85.5999755859375" text="Id lekarza" />
+                              <TableColumn fx:id="w_data" minWidth="0.0" prefWidth="201.60003662109375" text="Data" />
+                              <TableColumn fx:id="w_opis" minWidth="0.0" prefWidth="325.6000671386719" text="Opis" />
+                              <TableColumn fx:id="w_cena" prefWidth="88.7999267578125" text="Cena" />
                           </columns>
                            <contextMenu>
                               <ContextMenu fx:id="c_menu1" onShown="#test">
@@ -173,10 +174,11 @@
                             <TableColumn fx:id="l_login" prefWidth="127.20003509521484" text="Login" />
                               <TableColumn fx:id="l_haslo" prefWidth="117.5999755859375" text="Hasło" />
                               <TableColumn fx:id="l_imie" minWidth="3.20001220703125" prefWidth="106.4000244140625" text="Imię" />
-                              <TableColumn fx:id="l_nazwisko" prefWidth="143.99996948242188" text="Nazwisko" />
-                              <TableColumn fx:id="l_wiek" prefWidth="67.99993896484375" text="Wiek" />
-                              <TableColumn fx:id="l_nr_sali" prefWidth="121.60003662109375" text="Numer sali" />
-                              <TableColumn fx:id="l_telefon" prefWidth="137.60009765625" text="Telefon" />
+                              <TableColumn fx:id="l_nazwisko" prefWidth="119.20004272460938" text="Nazwisko" />
+                              <TableColumn fx:id="l_wiek" prefWidth="92.79998779296875" text="Wiek" />
+                              <TableColumn fx:id="l_nr_sali" text="Numer sali" />
+                              <TableColumn fx:id="l_telefon" prefWidth="92.0" text="Telefon" />
+                              <TableColumn fx:id="l_staz" prefWidth="106.4000244140625" text="Staż" />
                           </columns>
                            <contextMenu>
                               <ContextMenu fx:id="c_menu4" onShown="#test">

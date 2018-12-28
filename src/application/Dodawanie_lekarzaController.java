@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -30,14 +31,17 @@ import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 
 
-public class Dodawanie_lekarzaController {
+public class Dodawanie_lekarzaController extends MainController {
 	@FXML
 	private TextField l_login, l_haslo, l_imie, l_nazwisko, l_wiek, l_sala, l_telefon;
 	@FXML
 	public Button p_ok, p_anuluj;
+	@FXML
+	private CheckBox staz;
 	//Stworzenie instancji na pacjenta stworzonego w tym kontrolerze
 	@FXML
 	private ObservableList<Lekarz> lekarz;
+	
 	//Nale¿y j¹ wykonaæ, by nadaæ jakby eventy na poszczególne pola (wykonuje siê dla wszystkich FXML), jest to taka inicjalizacyjna
 	//Inicjalizuje ona w³asciwoœci dla FXMLi
 	@FXML
@@ -143,7 +147,12 @@ public class Dodawanie_lekarzaController {
 				{
 					errorWindow();
 				}
-			Lekarz l = new Lekarz(null, null, null, null, 0, 0, null);
+			Lekarz l;
+			if(staz.isSelected())
+				l = new Lekarz(null, null, null, null, 0, 0, null,true);
+			else
+				l = new Lekarz(null, null, null, null, 0, 0, null,false);
+
 			if (l.setLogin(l_login.getText()) == true && l.setSala(Integer.parseInt(l_sala.getText()))==true
 					&& l.setTelefon(l_telefon.getText()) == true)
 			{	
@@ -154,7 +163,7 @@ public class Dodawanie_lekarzaController {
 				l.setSala(Integer.parseInt(l_sala.getText()));
 				l.setWiek(Integer.parseInt(l_wiek.getText()));
 				l.setTelefon(l_telefon.getText());
-				Centrala.getInstance().addLekarz(l);
+				centrala.addLekarz(l);
 
 				//Dodanie lekarza
 				lekarz.add(l);

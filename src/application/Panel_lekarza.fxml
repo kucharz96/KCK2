@@ -92,10 +92,10 @@
                           <columns>
                               <TableColumn fx:id="w_id" prefWidth="44.000001549720764" text="Id" />
                             <TableColumn fx:id="w_pesel" prefWidth="152.0000228881836" text="Pesel" />
-                            <TableColumn fx:id="w_id_p" prefWidth="120.79998779296875" text="Id lekarza" />
-                              <TableColumn fx:id="w_data" minWidth="0.0" prefWidth="279.2000427246094" text="Data" />
-                              <TableColumn fx:id="w_opis" minWidth="0.0" prefWidth="300.800048828125" text="Opis" />
-                              <TableColumn fx:id="w_id1" prefWidth="120.79998779296875" text="Id lekarza" />
+                            <TableColumn fx:id="w_id_p" prefWidth="108.0" text="Id lekarza" />
+                              <TableColumn fx:id="w_data" minWidth="0.0" prefWidth="214.40005493164062" text="Data" />
+                              <TableColumn fx:id="w_opis" minWidth="0.0" prefWidth="304.800048828125" text="Opis" />
+                              <TableColumn fx:id="w_cena" minWidth="3.20001220703125" prefWidth="73.59991455078125" text="Cena" />
                           </columns>
                            <contextMenu>
                               <ContextMenu fx:id="c_menu1" onShown="#test">

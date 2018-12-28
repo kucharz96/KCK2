@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.TimeZone;
 import java.util.function.UnaryOperator;
 
@@ -25,10 +26,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -36,6 +39,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TextFormatter.Change;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -43,7 +47,7 @@ import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 
 
-public class Edytowanie_wizytyController {
+public class Edytowanie_wizytyController extends MainController {
 	@FXML
 	private TextArea w_opis;
 	@FXML
@@ -54,15 +58,24 @@ public class Edytowanie_wizytyController {
 	public Button p_ok, p_anuluj;
 	@FXML
 	private Spinner w_godzina, w_minuta;
-	private Centrala C;
-	private ObservableList<Lekarz> lekarz = FXCollections.observableArrayList(C.getInstance().getLekarze());
-	private ObservableList<Pacjent> pacjent = FXCollections.observableArrayList(C.getInstance().getPacjenci());
+	@FXML
+	private CheckBox konsultacja, ekg, echo;
+	@FXML
+	private RadioButton domowa, przychodnia;
+	private ToggleGroup grupa;
+	private ObservableList<Lekarz> lekarz = FXCollections.observableArrayList(centrala.getLekarze());
+	private ObservableList<Pacjent> pacjent = FXCollections.observableArrayList(centrala.getPacjenci());
 	private ObservableList<Wizyta> wizyta;
 	private int index;
 	//Nale¿y j¹ wykonaæ, by nadaæ jakby eventy na poszczególne pola (wykonuje siê dla wszystkich FXML), jest to taka inicjalizacyjna
 	//Inicjalizuje ona w³asciwoœci dla FXMLi	
 	public void initialize() throws NumberFormatException
 	{
+		
+		grupa = new ToggleGroup();
+		domowa.setToggleGroup(grupa);
+		przychodnia.setToggleGroup(grupa);
+		przychodnia.setSelected(true);
 		
 		for(Pacjent P: pacjent)
 		{
@@ -115,10 +128,47 @@ public class Edytowanie_wizytyController {
 					}
 					String minutka = Integer.toString(((Integer) w_minuta.getValue()));
 					Data = formatter.parse(dateczka+ " " + godzina +":"+  minutka);
-					Wizyta w = new Wizyta(Integer.parseInt(id1[0]), peselek1[0], w_opis.getText(),
+					Wizyta w;
+					if(przychodnia.isSelected())
+						w = new Wizyta_w_przychodni(Integer.parseInt(id1[0]), peselek1[0], w_opis.getText(),
 							dateczka+ " " + godzina +":"+  minutka);
-					C.getInstance().removeWizyta(index);
-					C.getInstance().addWizyta(w);
+					else
+						w = new Wizyta_domowa(Integer.parseInt(id1[0]), peselek1[0], w_opis.getText(),
+								dateczka+ " " + godzina +":"+  minutka);
+					
+					if(konsultacja.isSelected())
+						w = new Konsultacja(w);
+					
+					if(ekg.isSelected())
+						w = new Ekg(w);
+					
+					if(echo.isSelected())
+						w = new Echo_serca(w);
+					
+					w.setOpis(w.ustaw_opis() + w_opis.getText());
+					w.setCena(w.ustaw_cene());
+					int tmp = index;
+					for(Iterator<Lekarz> iter = centrala.getLekarze().iterator(); iter.hasNext();) {
+						Lekarz a = iter.next();
+						if(a.getRecepty().size() - 1 < tmp)
+							tmp -= a.getRecepty().size();
+						else {
+							a.removeWizyta(tmp);
+							
+							break;
+						}
+					}
+					for(Iterator<Lekarz> iter = centrala.getLekarze().iterator(); iter.hasNext();) {
+						Lekarz a = iter.next();
+						
+						if(a.getId() == Integer.parseInt(id1[0])) {
+						a.addWizyta(w);
+
+						break;
+						}
+					}
+					
+					
 					wizyta.set(index, w);
 					informationWindow();
 					
@@ -162,12 +212,12 @@ public class Edytowanie_wizytyController {
 	}
 	public void getItems(Wizyta selectedItem) {
 		// TODO Auto-generated method stub
-		for (Lekarz L: C.getInstance().getLekarze())
+		for (Lekarz L: centrala.getLekarze())
 		{
 			if(L.getId() == selectedItem.getId_lekarza())
 			w_lekarz.setValue((Integer.toString(selectedItem.getId_lekarza()) + " : "+L.getImie()+" "+L.getNazwisko()));
 		}
-		for (Pacjent L: C.getInstance().getPacjenci())
+		for (Pacjent L: centrala.getPacjenci())
 		{
 
 			if(L.getPesel().equals(selectedItem.getPesel_pacjenta()))
@@ -175,6 +225,25 @@ public class Edytowanie_wizytyController {
 		}
 		Date date = null;
 		w_opis.setText(selectedItem.getOpis());
+		if(selectedItem.ustaw_opis().contains("Wizyta domowa")) {
+			domowa.setSelected(true);
+			przychodnia.setSelected(false);
+		}
+		else {
+			przychodnia.setSelected(true);
+			domowa.setSelected(false);
+		}
+		
+		if(selectedItem.ustaw_opis().contains("Konsultacja"))
+			konsultacja.setSelected(true);
+		
+		if(selectedItem.ustaw_opis().contains("Ekg"))
+			ekg.setSelected(true);
+		
+		if(selectedItem.ustaw_opis().contains("Echo serca"))
+			echo.setSelected(true);
+		
+			
 		String dataa = selectedItem.getData().toString();
 		String dataaa[] = dataa.split(" ",6);
 		String godzina_minuta = dataaa[3];

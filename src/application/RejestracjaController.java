@@ -42,7 +42,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
-public class RejestracjaController {
+public class RejestracjaController extends MainController {
 	
 	static public boolean deci = true;
 	public TextField pesel_filtr;
@@ -73,12 +73,15 @@ public class RejestracjaController {
 	public TableColumn<Wizyta,Date> w_data;
 	public TableColumn<Lekarz,String> l_login, l_haslo, l_imie, l_nazwisko, l_telefon;
 	public TableColumn<Lekarz,Integer> l_id, l_wiek, l_nr_sali;
+	public TableColumn<Lekarz,String> l_staz;
+
 	public TableColumn<Skierowanie,String> s_pesel, s_opis;
 	public TableColumn<Skierowanie,Integer> s_id_p,s_id;
 	public TableColumn<Skierowanie,Date> s_data;
 	public TableColumn<Recepta,String> r_pesel, r_opis;
 	public TableColumn<Recepta,Integer> r_id_p,r_id;
 	public TableColumn<Recepta,Date> r_data;
+	public TableColumn<Wizyta,Float> w_cena;
 	public ObservableList<Pacjent> lista;
 	public ObservableList<Wizyta> lista1;
 	public ObservableList<Skierowanie> lista2;
@@ -103,26 +106,30 @@ public class RejestracjaController {
 
 		if(!tab_lekarze.isSelected()) {
 
-			for(Pacjent a:Centrala.getInstance().getPacjenci()) {
+			for(Pacjent a:centrala.getPacjenci()) {
 				if(a.getPesel().startsWith(pesel_filtr.getText()))
 					tmp1.add(a);
 			
 			}
-			for(Wizyta a:Centrala.getInstance().getWizyty()) {
-				if(a.getPesel_pacjenta().startsWith(pesel_filtr.getText()))
-					tmp2.add(a);
 			
-			}
-			for(Skierowanie a:Centrala.getInstance().getSkierowania()) {
-				if(a.getPesel_pacjenta().startsWith(pesel_filtr.getText()))
-					tmp3.add(a);
+			for(Lekarz b:centrala.getLekarze()) {
+				
+				for(Wizyta a:b.getWizyty()) {
+					if(a.getPesel_pacjenta().startsWith(pesel_filtr.getText()))
+						tmp2.add(a);
 			
-			}
-			for(Recepta a:Centrala.getInstance().getRecepty()) {
-				if(a.getPesel_pacjenta().startsWith(pesel_filtr.getText()))
-					tmp4.add(a);
+				}
+				for(Skierowanie a:b.getSkierowania()) {
+					if(a.getPesel_pacjenta().startsWith(pesel_filtr.getText()))
+						tmp3.add(a);
 			
-			}
+				}
+				for(Recepta a:b.getRecepty()) {
+					if(a.getPesel_pacjenta().startsWith(pesel_filtr.getText()))
+						tmp4.add(a);
+			
+				}
+			}	
 			lista = FXCollections.observableArrayList(tmp1);
 			lista1 = FXCollections.observableArrayList(tmp2);
 			lista2 = FXCollections.observableArrayList(tmp3);
@@ -136,7 +143,7 @@ public class RejestracjaController {
 		
 		else {
 			
-			for(Lekarz a:Centrala.getInstance().getLekarze()) {
+			for(Lekarz a:centrala.getLekarze()) {
 				if(a.getNazwisko().startsWith(pesel_filtr.getText()))
 					tmp5.add(a);
 				
@@ -151,7 +158,6 @@ public class RejestracjaController {
 	  
 	public void initialize() {
 									////////////INICJALIZACJA KOLUMN///////////////
-
 		p_pesel.setCellValueFactory(new PropertyValueFactory<>("pesel"));
 		p_imie.setCellValueFactory(new PropertyValueFactory<>("imie"));
 		p_nazwisko.setCellValueFactory(new PropertyValueFactory<>("nazwisko"));
@@ -166,6 +172,8 @@ public class RejestracjaController {
 		w_id_p.setCellValueFactory(new PropertyValueFactory<>("id_lekarza"));
 		w_opis.setCellValueFactory(new PropertyValueFactory<>("opis"));
 		w_data.setCellValueFactory(new PropertyValueFactory<>("data"));
+		w_cena.setCellValueFactory(new PropertyValueFactory<>("cena"));
+
 		
 		s_pesel.setCellValueFactory(new PropertyValueFactory<>("pesel_pacjenta"));
 		s_id.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -187,13 +195,35 @@ public class RejestracjaController {
 		l_haslo.setCellValueFactory(new PropertyValueFactory<>("haslo"));
 		l_telefon.setCellValueFactory(new PropertyValueFactory<>("telefon"));
 		l_nr_sali.setCellValueFactory(new PropertyValueFactory<>("sala"));
-											////////////UZUPELNIENIE TABELEK///////////////
+		l_staz.setCellValueFactory(new PropertyValueFactory<>("rodzaj"));
 
-		ObservableList<Pacjent> lista = FXCollections.observableArrayList(Centrala.getInstance().getPacjenci());
-		ObservableList<Wizyta> lista1 = FXCollections.observableArrayList(Centrala.getInstance().getWizyty());
-		ObservableList<Lekarz> lista2 = FXCollections.observableArrayList(Centrala.getInstance().getLekarze());
-		ObservableList<Skierowanie> lista3 = FXCollections.observableArrayList(Centrala.getInstance().getSkierowania());
-		ObservableList<Recepta> lista4 = FXCollections.observableArrayList(Centrala.getInstance().getRecepty());
+											////////////UZUPELNIENIE TABELEK///////////////
+		List<Wizyta> tmp2 = new ArrayList<>();
+		List<Skierowanie> tmp3 = new ArrayList<>();
+		List<Recepta> tmp4 = new ArrayList<>();
+		
+		for(Lekarz b:centrala.getLekarze()) {
+			for(Wizyta a:b.getWizyty()) {
+					tmp2.add(a);
+		
+			}
+			for(Skierowanie a:b.getSkierowania()) {
+					tmp3.add(a);
+		
+			}
+			for(Recepta a:b.getRecepty()) {
+					tmp4.add(a);
+		
+			}
+		}
+
+		
+		
+		ObservableList<Pacjent> lista = FXCollections.observableArrayList(centrala.getPacjenci());
+		ObservableList<Wizyta> lista1 = FXCollections.observableArrayList(tmp2);
+		ObservableList<Lekarz> lista2 = FXCollections.observableArrayList(centrala.getLekarze());
+		ObservableList<Skierowanie> lista3 = FXCollections.observableArrayList(tmp3);
+		ObservableList<Recepta> lista4 = FXCollections.observableArrayList(tmp4);
 	
 		pacjenci.setItems(lista);
 		wizyty.setItems(lista1);
@@ -274,6 +304,8 @@ public class RejestracjaController {
 		Optional<ButtonType> result = alert.showAndWait();
 		
 		if (result.get() == tak){
+			centrala.setStan(new Niezalogowany(centrala));
+
 			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("Logowanie.fxml"));
 			Scene scene = new Scene(root,400,220);
 			System.out.println("COstam");
@@ -370,7 +402,7 @@ public class RejestracjaController {
 		Optional<ButtonType> result = alert.showAndWait();
 		
 		if (result.get() == tak){
-			Centrala.getInstance().removePacjent(pacjenci.getSelectionModel().getSelectedIndex());
+			centrala.removePacjent(pacjenci.getSelectionModel().getSelectedIndex());
 			
 			for(Iterator<Wizyta> iter = wizyty.getItems().iterator(); iter.hasNext();) {
 				Wizyta a = iter.next();
@@ -464,7 +496,19 @@ public class RejestracjaController {
 		Optional<ButtonType> result = alert.showAndWait();
 		
 		if (result.get() == tak){
-			Centrala.getInstance().removeWizyta(wizyty.getSelectionModel().getSelectedIndex());
+			
+			int tmp = wizyty.getSelectionModel().getSelectedIndex();
+			for(Iterator<Lekarz> iter = centrala.getLekarze().iterator(); iter.hasNext();) {
+				Lekarz a = iter.next();
+				if(a.getWizyty().size() - 1 < tmp)
+					tmp -= a.getWizyty().size();
+				else {
+					a.removeWizyta(tmp);
+					break;
+				}
+					
+			}
+			
 			wizyty.getItems().remove(wizyty.getSelectionModel().getSelectedIndex());
 		    
 		   
@@ -506,7 +550,18 @@ public class RejestracjaController {
 		Optional<ButtonType> result = alert.showAndWait();
 		
 		if (result.get() == tak){
-			Centrala.getInstance().removeSkierowanie(skierowania.getSelectionModel().getSelectedIndex());
+			int tmp = skierowania.getSelectionModel().getSelectedIndex();
+			for(Iterator<Lekarz> iter = centrala.getLekarze().iterator(); iter.hasNext();) {
+				Lekarz a = iter.next();
+				if(a.getSkierowania().size() - 1 < tmp)
+					tmp -= a.getSkierowania().size();
+				else {
+					a.removeSkierowanie(tmp);
+					break;
+				}
+					
+			}
+			
 			skierowania.getItems().remove(skierowania.getSelectionModel().getSelectedIndex());
 		    
 		   
@@ -548,8 +603,18 @@ public class RejestracjaController {
 		Optional<ButtonType> result = alert.showAndWait();
 		
 		if (result.get() == tak){
-			Centrala.getInstance().removeRecepta(recepty.getSelectionModel().getSelectedIndex());
-			recepty.getItems().remove(recepty.getSelectionModel().getSelectedIndex());
+			int tmp = recepty.getSelectionModel().getSelectedIndex();
+			for(Iterator<Lekarz> iter = centrala.getLekarze().iterator(); iter.hasNext();) {
+				Lekarz a = iter.next();
+				if(a.getRecepty().size() - 1 < tmp)
+					tmp -= a.getRecepty().size();
+				else {
+					a.removeRecepta(tmp);
+					break;
+				}
+			}
+					
+						recepty.getItems().remove(recepty.getSelectionModel().getSelectedIndex());
 		    
 		   
 		} 
@@ -637,7 +702,7 @@ public class RejestracjaController {
 		Optional<ButtonType> result = alert.showAndWait();
 		
 		if (result.get() == tak){
-			Centrala.getInstance().removeLekarz(lekarze.getSelectionModel().getSelectedIndex());
+			centrala.removeLekarz(lekarze.getSelectionModel().getSelectedIndex());
 			for(Iterator<Wizyta> iter = wizyty.getItems().iterator(); iter.hasNext();) {
 				Wizyta a = iter.next();
 				if(a.getId_lekarza()==lekarze.getSelectionModel().getSelectedItem().getId()) 

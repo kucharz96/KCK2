@@ -43,14 +43,13 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
-public class Panel_lekarzaController {
+public class Panel_lekarzaController extends MainController {
 	
 	static public int id;
 	static public boolean deci = true;
 	public TextField pesel_filtr;
 	public Label etykieta_filtr;
 	public MenuBar bar;
-	private Centrala C;
 	public ContextMenu c_menu;
 	public ContextMenu c_menu1;
 	public ContextMenu c_menu2;
@@ -76,6 +75,8 @@ public class Panel_lekarzaController {
 	public TableColumn<Recepta,String> r_pesel, r_opis;
 	public TableColumn<Recepta,Integer> r_id_p,r_id;
 	public TableColumn<Recepta,Date> r_data;
+	public TableColumn<Wizyta,Float> w_cena;
+
 	public ObservableList<Pacjent> lista;
 	public ObservableList<Wizyta> lista1;
 	public ObservableList<Skierowanie> lista2;
@@ -93,25 +94,32 @@ public class Panel_lekarzaController {
 
 		
 
-			for(Pacjent a:Centrala.getInstance().getPacjenci()) {
+			for(Pacjent a:centrala.getPacjenci()) {
 				if(a.getPesel().startsWith(pesel_filtr.getText()))
 					tmp1.add(a);
 			
 			}
-			for(Wizyta a:Centrala.getInstance().getWizyty()) {
-				if(a.getPesel_pacjenta().startsWith(pesel_filtr.getText()) && a.getId_lekarza() == id)
-					tmp2.add(a);
+			for(Lekarz a:centrala.getLekarze()) {
+				if(a.getId() == id) {
+				
 			
-			}
-			for(Skierowanie a:Centrala.getInstance().getSkierowania() ) {
-				if(a.getPesel_pacjenta().startsWith(pesel_filtr.getText()) && a.getId_lekarza() == id)
-					tmp3.add(a);
+					for(Wizyta b:a.getWizyty()) {
+						if(b.getPesel_pacjenta().startsWith(pesel_filtr.getText()))
+							tmp2.add(b);
 			
-			}
-			for(Recepta a:Centrala.getInstance().getRecepty()) {
-				if(a.getPesel_pacjenta().startsWith(pesel_filtr.getText())&& a.getId_lekarza() == id)
-					tmp4.add(a);
+					}
+					for(Skierowanie b:a.getSkierowania() ) {
+						if(b.getPesel_pacjenta().startsWith(pesel_filtr.getText()))
+							tmp3.add(b);
 			
+					}
+					for(Recepta b:a.getRecepty()) {
+						if(b.getPesel_pacjenta().startsWith(pesel_filtr.getText()))
+							tmp4.add(b);
+			
+					}
+					break;
+				}
 			}
 			lista = FXCollections.observableArrayList(tmp1);
 			lista1 = FXCollections.observableArrayList(tmp2);
@@ -147,6 +155,7 @@ public class Panel_lekarzaController {
 		w_id_p.setCellValueFactory(new PropertyValueFactory<>("id_lekarza"));
 		w_opis.setCellValueFactory(new PropertyValueFactory<>("opis"));
 		w_data.setCellValueFactory(new PropertyValueFactory<>("data"));
+		w_cena.setCellValueFactory(new PropertyValueFactory<>("cena"));
 		
 		s_pesel.setCellValueFactory(new PropertyValueFactory<>("pesel_pacjenta"));
 		s_id.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -163,28 +172,33 @@ public class Panel_lekarzaController {
 		
 											////////////UZUPELNIENIE TABELEK///////////////
 		ObservableList<Wizyta> lista1 =  FXCollections.observableArrayList();
-		for(Wizyta a:Centrala.getInstance().getWizyty()) {
-			if(a.getId_lekarza() == id)
-				lista1.add(a);
-			
-		}
+		
 		
 		ObservableList<Skierowanie> lista3 =  FXCollections.observableArrayList();
-		for(Skierowanie a:Centrala.getInstance().getSkierowania()) {
-			if(a.getId_lekarza() == id)
-				lista3.add(a);
-			
-		}
 		
 		ObservableList<Recepta> lista4 =  FXCollections.observableArrayList();
-		for(Recepta a:Centrala.getInstance().getRecepty()) {
-			if(a.getId_lekarza() == id)
-				lista4.add(a);
+		for(Lekarz a:centrala.getLekarze()) {
+			if(a.getId() == id) {
 			
+		
+				for(Wizyta b:a.getWizyty()) {
+						lista1.add(b);
+		
+				}
+				for(Skierowanie b:a.getSkierowania() ) {
+						lista3.add(b);
+		
+				}
+				for(Recepta b:a.getRecepty()) {
+						lista4.add(b);
+		
+				}
+				break;
+			}
 		}
 		
 		
-		ObservableList<Pacjent> lista = FXCollections.observableArrayList(Centrala.getInstance().getPacjenci());
+		ObservableList<Pacjent> lista = FXCollections.observableArrayList(centrala.getPacjenci());
 		
 		
 		
@@ -254,6 +268,7 @@ public class Panel_lekarzaController {
 		Optional<ButtonType> result = alert.showAndWait();
 		
 		if (result.get() == tak){
+			centrala.setStan(new Niezalogowany(centrala));
 			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("Logowanie.fxml"));
 			Scene scene = new Scene(root,400,220);
 			System.out.println("COstam");
@@ -377,7 +392,7 @@ public class Panel_lekarzaController {
 			Stage stage = new Stage();
 			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
 			Dodawanie_receptyController controller = fxmlLoader.getController();
-		    controller.setItems(recepty.getItems());
+			controller.setItems(recepty.getItems());
 			stage.setScene(scene);
 		    stage.setTitle("Dodaj receptê");	
 		    stage.initModality(Modality.WINDOW_MODAL);

@@ -26,7 +26,6 @@ public class LoeadingController {
 	@FXML
 	private ProgressBar loading_bar;
 	private int param = 0;
-	private Centrala C;
 	public void initialize() throws IOException
 	{
 		loading_bar.setMinWidth(200);

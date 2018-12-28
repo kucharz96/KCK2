@@ -10,21 +10,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class Szczegoly_wizytyController {
+public class Szczegoly_wizytyController extends MainController {
 	@FXML
 	private Label pacjent, lekarz, godzina, data, opis;
 	@FXML
 	private Button  p_ok;
-	private Centrala C;
 	public void set_labels(Wizyta a) {
-		for (Lekarz L: C.getInstance().getLekarze())
+		for (Lekarz L: centrala.getLekarze())
 		{
 			System.out.println(L.getId());
 			System.out.println(a.getId_lekarza());
 			if(L.getId() == a.getId_lekarza())
 			lekarz.setText((Integer.toString(a.getId_lekarza()) + " : "+L.getImie()+" "+L.getNazwisko()));
 		}
-		for (Pacjent L: C.getInstance().getPacjenci())
+		for (Pacjent L: centrala.getPacjenci())
 		{
 
 			if(L.getPesel().equals(a.getPesel_pacjenta()))

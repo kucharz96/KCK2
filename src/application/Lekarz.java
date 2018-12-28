@@ -1,5 +1,8 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Lekarz {
 	private static int total_id = 0;
 	private int id;
@@ -10,9 +13,12 @@ public class Lekarz {
 	private int wiek;
 	private int sala;
 	private String telefon;
-	private Centrala C;
+	private Rodzaj_lekarza rodzaj;
+	private List<Recepta> recepty = new ArrayList<Recepta>();
+	private List<Skierowanie> skierowania = new ArrayList<Skierowanie>();
+	private List<Wizyta> wizyty = new ArrayList<Wizyta>();
 	
-	public Lekarz(String login, String haslo, String imie, String nazwisko, int wiek, int sala, String telefon)
+	public Lekarz(String login, String haslo, String imie, String nazwisko, int wiek, int sala, String telefon, boolean staz)
 	{
 		this.id = total_id++;
 		this.login = login;
@@ -22,8 +28,61 @@ public class Lekarz {
 		this.wiek = wiek;
 		this.sala = sala;
 		this.telefon = telefon;
+		if(staz)
+			rodzaj = new Staz();
+		else
+			rodzaj = new Bez_stazu();
 	}
 
+	public List<Recepta> getRecepty() {
+		return recepty;
+	}
+	public List<Skierowanie> getSkierowania() {
+		return skierowania;
+	}
+	public List<Wizyta> getWizyty() {
+		return wizyty;
+	}
+	
+	public boolean czy_dodac_wizyte(Wizyta w, Lekarz l) {
+		
+		
+		
+		
+		return rodzaj.czy_dodac_wizyte(w, this);
+		
+	}
+
+	public String getRodzaj() {
+			if(rodzaj.getClass() == Staz.class)
+				return "tak";
+			else
+				return "nie";
+	
+		}
+	public void setRodzaj(Rodzaj_lekarza rodzaj) {
+		
+		this.rodzaj = rodzaj;
+	}
+	
+	public void addRecepta(Recepta e) {
+		recepty.add(e);
+	}
+	public void removeRecepta(int index) {
+		recepty.remove(index);
+	}
+	public void addSkierowanie(Skierowanie e) {
+		skierowania.add(e);
+	}
+	public void removeSkierowanie(int index) {
+		skierowania.remove(index);
+	}
+	public void addWizyta(Wizyta e) {
+		wizyty.add(e);
+	}
+	public void removeWizyta(int index) {
+		wizyty.remove(index);
+	}
 	public static int getTotal_id() {
 		return total_id;
 	}
