@@ -17,7 +17,6 @@ public interface Wizyta {
 	public void setOpis(String opis);
 	public Float getCena();
 	public void setCena(Float cena);
-	
 	public String ustaw_opis();
 	public Float ustaw_cene();
 	

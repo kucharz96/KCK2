@@ -3,7 +3,9 @@ package application;
 import java.util.Date;
 
 public abstract class Usluga implements Wizyta {
-	 protected final Wizyta wizyta;
+	 
+	
+	 protected Wizyta wizyta;
 	 protected Usluga(Wizyta wizyta) {
 		 this.wizyta = wizyta;
 	 }

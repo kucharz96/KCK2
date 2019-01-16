@@ -13,7 +13,16 @@ public class Wizyta_w_przychodni implements Wizyta {
 	private String opis;
 	private Float cena;
 	
+	@Override
+	public Float ustaw_cene() {
+		// TODO Auto-generated method stub
+		return 100.00f;
+	}
 	
+	@Override
+	public String ustaw_opis() {
+		return " -Wizyta w przychodni- ";
+	}
 	
 	
 	public Wizyta_w_przychodni(int id_lekarza, String pesel_pacjenta, String opis, String data) {
@@ -33,6 +42,10 @@ public class Wizyta_w_przychodni implements Wizyta {
 		    
 		this.opis = opis;
 	}
+	
+	
+	
+	
 	public static void setId() {
 	total_id ++;
 	
@@ -73,10 +86,7 @@ public class Wizyta_w_przychodni implements Wizyta {
 	public void setOpis(String opis) {
 		this.opis = opis;
 	}
-	@Override
-	public String ustaw_opis() {
-		return " -Wizyta w przychodni- ";
-	}
+	
 	@Override
 	public Float getCena() {
 		// TODO Auto-generated method stub
@@ -86,9 +96,5 @@ public class Wizyta_w_przychodni implements Wizyta {
 	public void setCena(Float cena) {
 		this.cena = cena;
 	}
-	@Override
-	public Float ustaw_cene() {
-		// TODO Auto-generated method stub
-		return 100.00f;
-	}
+	
 }

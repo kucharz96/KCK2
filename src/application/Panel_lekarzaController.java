@@ -271,7 +271,6 @@ public class Panel_lekarzaController extends MainController {
 			centrala.setStan(new Niezalogowany(centrala));
 			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("Logowanie.fxml"));
 			Scene scene = new Scene(root,400,220);
-			System.out.println("COstam");
 		    Stage stageTheEventSourceNodeBelongs = (Stage) ((Stage)bar.getScene().getWindow());
 		    stageTheEventSourceNodeBelongs.setScene(scene);
 		    stageTheEventSourceNodeBelongs.setTitle("Logowanie");

@@ -33,9 +33,11 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
+		
 		Centrala centrala = Centrala.getInstance();
 		MainController.setCentrala(centrala);
 		centrala.setStan(new Niezalogowany(centrala));
+		
 		launch(args);
 	}
 }

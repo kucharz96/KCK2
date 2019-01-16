@@ -7,15 +7,33 @@ import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
-//siemka
-//costam
-//Jeszcze jedno
-//asdasdasdasdsadasd
+
 public class Centrala {
+	
 	private static Centrala instance = null;
 	private List<Lekarz> lekarze = new ArrayList<Lekarz>();
 	private ArrayList<Pacjent> pacjenci = new ArrayList<Pacjent>();
 	private Stan stan = null;
+	
+	public void setStan(Stan stan) {
+		this.stan = stan;
+	}
+	public static Centrala getInstance() {
+        if (instance == null) {
+            instance = new Centrala();
+        }
+        
+        return instance;
+    }
+	
+	public void Logowanie(String login, String haslo,Button b, ActionEvent event)
+	{
+		stan.logowanie(login, haslo, b, event);
+	}
+	
+	
+	
+	
 	
 	public Centrala() {
 		addPacjent(new Pacjent("96113983712", "Rafon", "Tracz", 12, "Rafonowo", 6, 16,
@@ -67,16 +85,7 @@ public class Centrala {
 		addLekarz(new Lekarz("123", "123", "Kamilo", "Kamco", 45, 200, "211111112",true));
 	}
 	
-	public void setStan(Stan stan) {
-		this.stan = stan;
-	}
-	public static Centrala getInstance() {
-        if (instance == null) {
-            instance = new Centrala();
-        }
-        
-        return instance;
-    }
+	
 	
 	public List<Lekarz> getLekarze() {
 		return lekarze;
@@ -86,49 +95,13 @@ public class Centrala {
 		return pacjenci;
 	}
 	
-	public void Logowanie(String login, String haslo,Button b, ActionEvent event)
-	{//
-		/*if(login == null || haslo == null)
-			return "";
-
-		if(login.equals("admin") && haslo.equals("admin"))
-			return login;
-		
-		for (Lekarz a : lekarze)
-		{
-			if(a.getLogin().equals(login) && a.getHaslo().equals(haslo))
-				return login;
-		}
-		return "";*/
-		stan.logowanie(login, haslo, b, event);
-	}
+	
 	public void addLekarz(Lekarz e) {
 		lekarze.add(e);
 	}
 	public void removeLekarz(int index) {
 		
-/*
-		for(Iterator<Recepta> iter = recepty.iterator(); iter.hasNext();) {
-			Recepta a = iter.next();
-			if(a.getId_lekarza()==lekarze.get(index).getId()) 
-				iter.remove();
-				
-			
-		}
-			for(Iterator<Skierowanie> iter = skierowania.iterator(); iter.hasNext();) {
-				Skierowanie a = iter.next();
-				if(a.getId_lekarza()==lekarze.get(index).getId()) 
-					iter.remove();
-					
-				
-			}
-			for(Iterator<Wizyta> iter = wizyty.iterator(); iter.hasNext();) {
-				Wizyta a = iter.next();
-				if(a.getId_lekarza()==lekarze.get(index).getId()) 
-					iter.remove();
-					
-				
-			}*/
+
 			
 			lekarze.remove(index);
 

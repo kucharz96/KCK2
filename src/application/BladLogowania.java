@@ -11,6 +11,7 @@ public class BladLogowania implements Stan {
 	public BladLogowania(Centrala a) {
 		C = a;
 	}
+	
 	@Override
 	public void logowanie(String login, String haslo, Button b, ActionEvent event) {
 		boolean calert = false;

@@ -21,6 +21,25 @@ public class Lekarz {
 	private List<Skierowanie> skierowania = new ArrayList<Skierowanie>();
 	private List<Wizyta> wizyty = new ArrayList<Wizyta>();
 	
+public boolean czy_dodac_wizyte(Wizyta w, Lekarz l) {
+		
+		for(Wizyta a:l.getWizyty()) {
+
+			if(a.getData().equals(w.getData())) {
+				Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("B³¹d dodania wizyty");
+			alert.setHeaderText(null);
+			alert.setContentText("Lekarz zajêty");
+			alert.showAndWait();
+			return false;
+			
+			}		
+		}
+		
+		return rodzaj.czy_dodac_wizyte(w, this);
+		
+	}
+	
 	public Lekarz(String login, String haslo, String imie, String nazwisko, int wiek, int sala, String telefon, boolean staz)
 	{
 		this.id = total_id++;
@@ -47,29 +66,10 @@ public class Lekarz {
 		return wizyty;
 	}
 	
-	public boolean czy_dodac_wizyte(Wizyta w, Lekarz l) {
-		
-		for(Wizyta a:l.getWizyty()) {
+	
 
-			if(a.getData().equals(w.getData())) {
-				Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("B³¹d dodania wizyty");
-			alert.setHeaderText(null);
-			alert.setContentText("Lekarz zajêty");
-			alert.showAndWait();
-			return false;
-			
-			}
-				
-				
-		}
-		
-		
-		
-		return rodzaj.czy_dodac_wizyte(w, this);
-		
-	}
-
+	
+	
 	public String getRodzaj() {
 			if(rodzaj.getClass() == Staz.class)
 				return "tak";

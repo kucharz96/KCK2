@@ -14,6 +14,17 @@ public class Wizyta_domowa implements Wizyta {
 	private String opis;
 	private Float cena;
 	
+	@Override
+	public Float ustaw_cene() {
+		// TODO Auto-generated method stub
+		return 250.00f;
+	}
+	
+	@Override
+	public String ustaw_opis() {
+		// TODO Auto-generated method stub
+		return " -Wizyta domowa- ";
+	}
 	
 	
 	public Wizyta_domowa(int id_lekarza, String pesel_pacjenta, String opis, String data) {
@@ -73,11 +84,7 @@ public class Wizyta_domowa implements Wizyta {
 	public void setOpis(String opis) {
 		this.opis = opis;
 	}
-	@Override
-	public String ustaw_opis() {
-		// TODO Auto-generated method stub
-		return " -Wizyta domowa- ";
-	}
+	
 	@Override
 	public Float getCena() {
 		// TODO Auto-generated method stub
@@ -88,10 +95,6 @@ public class Wizyta_domowa implements Wizyta {
 		// TODO Auto-generated method stub
 		this.cena = cena;
 	}
-	@Override
-	public Float ustaw_cene() {
-		// TODO Auto-generated method stub
-		return 250.00f;
-	}
+	
 	
 }

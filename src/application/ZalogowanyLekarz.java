@@ -25,31 +25,9 @@ public class ZalogowanyLekarz implements Stan {
 			if(login.equals(a.getLogin()))
 			tmp = a;
 		}
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Loading.fxml"));
-		Stage stage = new Stage();
-	    stage.initOwner(b.getScene().getWindow());
-	    
-	    try {
-			stage.setScene(new Scene((Parent) fxmlLoader.load()));
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
-		stage.setTitle("£adowanie ustawieñ...");
-		stage.initModality(Modality.WINDOW_MODAL);
-		stage.showAndWait();
-		
-		LoeadingController controller2 = fxmlLoader.getController();
-		System.out.println(controller2.setItems());
-		if(controller2.setItems() == 1)
-			{
-				System.out.println("XD");
-				stage.close();
 				Panel_lekarzaController.id = tmp.getId();
-	    		/////////////
 	    		FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("Panel_lekarza.fxml"));
-
-				BorderPane root1 = null;
+	    		BorderPane root1 = null;
 				try {
 					root1 = (BorderPane)fxmlLoader1.load();
 				} catch (IOException e) {
@@ -64,5 +42,5 @@ public class ZalogowanyLekarz implements Stan {
 		
 			}
 
-		}
+		
 }

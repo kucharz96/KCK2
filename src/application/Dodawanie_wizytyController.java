@@ -104,8 +104,8 @@ public class Dodawanie_wizytyController extends MainController {
 					return;
 				}
 				//Ogarniêcie peselku
-				String peselek = w_pacjent.getSelectionModel().getSelectedItem().toString();
-				String peselek1[] = peselek.split(" ", 2);
+				String pesel = w_pacjent.getSelectionModel().getSelectedItem().toString();
+				String pesel1[] = pesel.split(" ", 2);
 				//Ogarniêcie id lekarza
 				String id = w_lekarz.getSelectionModel().getSelectedItem().toString();
 				
@@ -113,7 +113,7 @@ public class Dodawanie_wizytyController extends MainController {
 				SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 				Date Data = null;
 				try {
-					String dateczka = w_data.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+					String date = w_data.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 					String godzina;
 					
 					if (((Integer) w_godzina.getValue()) < 10)
@@ -126,17 +126,19 @@ public class Dodawanie_wizytyController extends MainController {
 						godzina = Integer.toString(((Integer) w_godzina.getValue()));
 					}
 					
-					String minutka = Integer.toString(((Integer) w_minuta.getValue()));
+					String minuta = Integer.toString(((Integer) w_minuta.getValue()));
 					
-					Data = formatter.parse(dateczka+ " " + godzina +":"+  minutka);
+					Data = formatter.parse(date+ " " + godzina +":"+  minuta);
+					
+					
 					Wizyta w;
 					
 					if(przychodnia.isSelected())
-						w = new Wizyta_w_przychodni(Integer.parseInt(id1[0]), peselek1[0], w_opis.getText(),
-							dateczka+ " " + godzina +":"+  minutka);
+						w = new Wizyta_w_przychodni(Integer.parseInt(id1[0]), pesel1[0], w_opis.getText(),
+							date + " " + godzina +":"+  minuta);
 					else
-						w = new Wizyta_domowa(Integer.parseInt(id1[0]), peselek1[0], w_opis.getText(),
-								dateczka+ " " + godzina +":"+  minutka);
+						w = new Wizyta_domowa(Integer.parseInt(id1[0]), pesel1[0], w_opis.getText(),
+								date + " " + godzina +":"+  minuta);
 					
 					if(konsultacja.isSelected())
 						w = new Konsultacja(w);
@@ -158,18 +160,14 @@ public class Dodawanie_wizytyController extends MainController {
 						Lekarz a = iter.next();
 						
 						if(a.getId() == Integer.parseInt(id1[0])) {
+							
 							if(a.czy_dodac_wizyte(w, a)){
-							informationWindow();
-
-							a.addWizyta(w);
-						
-						
-						wizyta.add(w);
-						break;
+								informationWindow();
+								a.addWizyta(w);
+								wizyta.add(w);
+								break;
 							}
 						}
-						else
-							System.out.println("cosnietak");
 					}
 					
 					
