@@ -30,11 +30,11 @@ public class Pacjent {
 		return pesel;
 	}
 	@SuppressWarnings("static-access")
-	public boolean setPesel(String pesel) {
+	public boolean setPesel(Centrala c,String pesel) {
 		String pattern = "[0-9]{11}";
 		if (pesel.matches(pattern))
 		{
-			for (Pacjent P1 : Centrala.getInstance().getPacjenci()) {
+			for (Pacjent P1 : c.getPacjenci()) {
 				if (P1.getPesel().equals(pesel)) {
 					System.out.println("Pesel niepoprawny");
 					return false;

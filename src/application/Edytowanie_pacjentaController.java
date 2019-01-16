@@ -145,9 +145,9 @@ public class Edytowanie_pacjentaController extends MainController {
 					System.out.println("XD");
 				}
 			}
-			if(p.setPesel(p_pesel.getText())==true)
+			if(p.setPesel(centrala, p_pesel.getText())==true)
 			{
-				p.setPesel(p_pesel.getText());
+				p.setPesel(centrala,p_pesel.getText());
 				p.setImie(p_imie.getText());
 				p.setNazwisko(p_nazwisko.getText());
 				p.setWiek(Integer.parseInt(p_wiek.getText()));

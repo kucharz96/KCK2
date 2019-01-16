@@ -162,15 +162,20 @@ public class Edytowanie_wizytyController extends MainController {
 						Lekarz a = iter.next();
 						
 						if(a.getId() == Integer.parseInt(id1[0])) {
-						a.addWizyta(w);
+							if(a.czy_dodac_wizyte(w, a)){
+								informationWindow();
+
+								
+							
+							a.addWizyta(w);
+							wizyta.set(index, w);
+
 
 						break;
-						}
+						}}
 					}
 					
 					
-					wizyta.set(index, w);
-					informationWindow();
 					
 				} catch (ParseException e) {
 					System.out.println("niet");

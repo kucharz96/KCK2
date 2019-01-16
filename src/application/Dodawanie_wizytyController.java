@@ -152,17 +152,26 @@ public class Dodawanie_wizytyController extends MainController {
 					
 					
 					
+					
+					
 					for(Iterator<Lekarz> iter = centrala.getLekarze().iterator(); iter.hasNext();) {
 						Lekarz a = iter.next();
 						
 						if(a.getId() == Integer.parseInt(id1[0])) {
-						a.addWizyta(w);
+							if(a.czy_dodac_wizyte(w, a)){
+							informationWindow();
 
+							a.addWizyta(w);
+						
+						
 						wizyta.add(w);
 						break;
+							}
 						}
+						else
+							System.out.println("cosnietak");
 					}
-					informationWindow();
+					
 					
 				} catch (ParseException e) {
 					System.out.println("niet");

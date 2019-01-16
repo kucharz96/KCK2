@@ -142,7 +142,7 @@ public class Dodawanie_pacjentaController extends MainController {
 					}
 			}
 	
-				p.setPesel(p_pesel.getText());
+				p.setPesel(centrala,p_pesel.getText());
 				p.setImie(p_imie.getText());
 				p.setNazwisko(p_nazwisko.getText());
 				p.setWiek(Integer.parseInt(p_wiek.getText()));

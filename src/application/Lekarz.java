@@ -3,6 +3,9 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class Lekarz {
 	private static int total_id = 0;
 	private int id;
@@ -46,6 +49,20 @@ public class Lekarz {
 	
 	public boolean czy_dodac_wizyte(Wizyta w, Lekarz l) {
 		
+		for(Wizyta a:l.getWizyty()) {
+
+			if(a.getData().equals(w.getData())) {
+				Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("B³¹d dodania wizyty");
+			alert.setHeaderText(null);
+			alert.setContentText("Lekarz zajêty");
+			alert.showAndWait();
+			return false;
+			
+			}
+				
+				
+		}
 		
 		
 		
