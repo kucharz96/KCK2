@@ -129,7 +129,6 @@
                            <contextMenu>
                               <ContextMenu fx:id="c_menu2" onShown="#test">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#s_usun" text="Usuń" />
                                     <MenuItem mnemonicParsing="false" onAction="#s_szczegoly" text="Szczegóły..." />
                                  </items>
                               </ContextMenu>
@@ -154,7 +153,6 @@
                            <contextMenu>
                               <ContextMenu fx:id="c_menu3" onShown="#test">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#r_usun" text="Usuń" />
                                     <MenuItem mnemonicParsing="false" onAction="#r_szczegoly" text="Szczegóły..." />
                                  </items>
                               </ContextMenu>
