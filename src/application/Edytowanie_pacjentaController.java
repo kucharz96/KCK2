@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.function.UnaryOperator;
 
 import javax.imageio.spi.RegisterableService;
@@ -39,6 +40,7 @@ public class Edytowanie_pacjentaController extends MainController {
 	@FXML
 	public Button p_ok, p_anuluj;
 	//Stworzenie instancji na pacjenta stworzonego w tym kontrolerze]
+	private String poczatkowy_pesel;
 	private int index;
 	private ObservableList<Pacjent> pacjent_lista;
 	//Nale¿y j¹ wykonaæ, by nadaæ jakby eventy na poszczególne pola (wykonuje siê dla wszystkich FXML), jest to taka inicjalizacyjna
@@ -46,8 +48,7 @@ public class Edytowanie_pacjentaController extends MainController {
 	@FXML
 	public void initialize() throws NumberFormatException
 	{
-		//System.out.println(pacjent.getPesel());
-		//p_pesel.textProperty().setValue();
+
 		p_pesel.textProperty().addListener(new ChangeListener<String>() {
 		    @Override
 		    public void changed(ObservableValue<? extends String> observable, String oldValue, 
@@ -134,20 +135,33 @@ public class Edytowanie_pacjentaController extends MainController {
 				|| p_ulica.getText().isEmpty() || p_miejscowosc.getText().isEmpty())
 				{
 					errorWindow();
+					return;
 				}
-			Pacjent p = new Pacjent(null, null, null, 0, null, 0, 0, null);
-			Pacjent PP = centrala.getPacjenci().get(index);
-			for(Pacjent P1: centrala.getPacjenci())
+
+			if (poczatkowy_pesel.equals(p_pesel.getText()))
 			{
-				if (P1.getPesel().equals(p_pesel) && !PP.getPesel().equals(P1.getPesel()))
+				//Nic, smia³o zapisaæ mo¿na.
+			}
+			else
+			{
+				String pattern = "[0-9]{11}";
+				for (Pacjent P : centrala.getPacjenci())
 				{
-					peselError();
-					System.out.println("XD");
+					if(p_pesel.getText().equals(P.getPesel()))
+					{
+						peselError();
+						return;
+					}
+
+					if(!p_pesel.getText().matches(pattern))
+					{
+						peselError();
+						return;
+					}	
 				}
 			}
-			if(p.setPesel(centrala, p_pesel.getText())==true)
-			{
-				p.setPesel(centrala,p_pesel.getText());
+				Pacjent p = new Pacjent();
+				p.setPesel(p_pesel.getText());
 				p.setImie(p_imie.getText());
 				p.setNazwisko(p_nazwisko.getText());
 				p.setWiek(Integer.parseInt(p_wiek.getText()));
@@ -155,19 +169,12 @@ public class Edytowanie_pacjentaController extends MainController {
 				p.setNr_domu(Integer.parseInt(p_numer_domu.getText()));
 				p.setNr_mieszkania(Integer.parseInt(p_numer_mieszkania.getText()));
 				p.setMiejscowosc(p_miejscowosc.getText());
-				//Centrala.getInstance().addPacjent(p);
-
 				//Dodanie pacjenta//
 				pacjent_lista.set(index, p);
 				informationWindow();
 	
 			}
-			else
-			{
-				peselError();
-			}
-			}
-			
+				
 		}
 
 	
@@ -215,6 +222,7 @@ public class Edytowanie_pacjentaController extends MainController {
 		p_numer_domu.textProperty().setValue(Integer.toString(selectedItem.getNr_domu()));
 		p_numer_mieszkania.textProperty().setValue(Integer.toString(selectedItem.getNr_mieszkania()));
 		p_miejscowosc.textProperty().setValue(selectedItem.getMiejscowosc());
+		poczatkowy_pesel = selectedItem.getPesel();
 		
 	}
 	public void setIndex(int i) {

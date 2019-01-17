@@ -308,7 +308,6 @@ public class Panel_lekarzaController extends MainController {
 		Szczegoly_pacjentaController controller = fxmlLoader.<Szczegoly_pacjentaController>getController();
 		controller.set_labels(pacjenci.getSelectionModel().getSelectedItem());
 		Scene scene = new Scene(root);
-		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
 	    stage.setTitle("Szczegó³y pacjenta");	
@@ -322,13 +321,11 @@ public class Panel_lekarzaController extends MainController {
 
 	
 	public void w_szczegoly() throws IOException {
-		System.out.println("cccc");
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_wizyty.fxml"));
 		Pane root = (Pane)fxmlLoader.load();
 		Szczegoly_wizytyController controller = fxmlLoader.<Szczegoly_wizytyController>getController();
 		controller.set_labels(wizyty.getSelectionModel().getSelectedItem());
 		Scene scene = new Scene(root);
-		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
 	    stage.setTitle("Szczegó³y wizyty");	
@@ -341,7 +338,6 @@ public class Panel_lekarzaController extends MainController {
 	//////////////////////////////////////////////////////////////DLA SKIEROWAN/////////////////////////////////////////////////////////////////////////////
 
 	public void s_dodaj() {
-		System.out.println("bbbbb");
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dodawanie_skierowania.fxml"));
 			Pane root = (Pane)fxmlLoader.load();
@@ -364,13 +360,11 @@ public class Panel_lekarzaController extends MainController {
 	
 	
 	public void s_szczegoly() throws IOException {
-		System.out.println("cccc");
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_skierowania.fxml"));
 		Pane root = (Pane)fxmlLoader.load();
 		Szczegoly_skierowaniaController controller = fxmlLoader.<Szczegoly_skierowaniaController>getController();
 		controller.set_labels(skierowania.getSelectionModel().getSelectedItem());
 		Scene scene = new Scene(root);
-		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
 	    stage.setTitle("Szczegó³y skierowania");	
@@ -383,7 +377,6 @@ public class Panel_lekarzaController extends MainController {
 	}
 	//////////////////////////////////////////////////////////////DLA RECEPT/////////////////////////////////////////////////////////////////////////////
 	public void r_dodaj() {
-		System.out.println("bbbbb");
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dodawanie_recepty.fxml"));
 			Pane root = (Pane)fxmlLoader.load();
@@ -409,13 +402,11 @@ public class Panel_lekarzaController extends MainController {
 
 
 	public void r_szczegoly() throws IOException {
-		System.out.println("cccc");
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_recepty.fxml"));
 		Pane root = (Pane)fxmlLoader.load();
 		Szczegoly_receptyController controller = fxmlLoader.<Szczegoly_receptyController>getController();
 		controller.set_labels(recepty.getSelectionModel().getSelectedItem());
 		Scene scene = new Scene(root);
-		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
 	    stage.setTitle("Szczegó³y recepty");	

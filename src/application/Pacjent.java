@@ -13,6 +13,10 @@ public class Pacjent {
 	private int nr_mieszkania;
 	private String miejscowosc;
 	
+	Pacjent()
+	{
+		
+	}
 	Pacjent(/*int id_lekarza, */String pesel, String imie, String nazwisko, int wiek, String ulica, int nr_domu, int nr_mieszkania,
 			String miejscowosc)
 	{
@@ -30,22 +34,14 @@ public class Pacjent {
 		return pesel;
 	}
 	@SuppressWarnings("static-access")
-	public boolean setPesel(Centrala c,String pesel) {
+	public boolean setPesel(String pesel) {
 		String pattern = "[0-9]{11}";
 		if (pesel.matches(pattern))
 		{
-			for (Pacjent P1 : c.getPacjenci()) {
-				if (P1.getPesel().equals(pesel)) {
-					System.out.println("Pesel niepoprawny");
-					return false;
-				}
-			}
-
 			this.pesel = pesel;
 			return true;
 			
 		}
-		System.out.println("Pesel niepoprawny!");
 		return false;
 	}
 	public String getImie() {

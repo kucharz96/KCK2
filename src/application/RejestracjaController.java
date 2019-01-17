@@ -371,11 +371,9 @@ public class RejestracjaController extends MainController {
 			Stage stage = new Stage();
 			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
 			Edytowanie_pacjentaController controller = fxmlLoader.getController();
-			Edytowanie_pacjentaController controller2 = fxmlLoader.getController();
-			Edytowanie_pacjentaController controllerIndex = fxmlLoader.getController();
 			//Odbiór i przekazanie danych
-			controllerIndex.setIndex(pacjenci.getSelectionModel().selectedIndexProperty().get());
-			controller2.setItems(pacjenci.getItems());
+			controller.setIndex(pacjenci.getSelectionModel().selectedIndexProperty().get());
+			controller.setItems(pacjenci.getItems());
 		    controller.getItems(pacjenci.getSelectionModel().getSelectedItem());
 			stage.setScene(scene);
 		    stage.setTitle("Edytuj pacjenta");	
@@ -422,7 +420,6 @@ public class RejestracjaController extends MainController {
 		Szczegoly_pacjentaController controller = fxmlLoader.<Szczegoly_pacjentaController>getController();
 		controller.set_labels(pacjenci.getSelectionModel().getSelectedItem());
 		Scene scene = new Scene(root);
-		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
 	    stage.setTitle("Szczegó³y pacjenta");	
@@ -435,7 +432,6 @@ public class RejestracjaController extends MainController {
 	//////////////////////////////////////////////////////////////DLA WIZYT/////////////////////////////////////////////////////////////////////////////
 
 	public void w_dodaj() {
-		System.out.println("bbbbb");
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dodawanie_wizyty.fxml"));
 			Pane root = (Pane)fxmlLoader.load();
@@ -465,11 +461,9 @@ public class RejestracjaController extends MainController {
 			Stage stage = new Stage();
 			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
 			Edytowanie_wizytyController controller = fxmlLoader.getController();
-			Edytowanie_wizytyController controller2 = fxmlLoader.getController();
-			Edytowanie_wizytyController controllerIndex = fxmlLoader.getController();
 			//Odbiór i przekazanie danych
-			controllerIndex.setIndex(wizyty.getSelectionModel().selectedIndexProperty().get());
-			controller2.setItems(wizyty.getItems());
+			controller.setIndex(wizyty.getSelectionModel().selectedIndexProperty().get());
+			controller.setItems(wizyty.getItems());
 		    controller.getItems(wizyty.getSelectionModel().getSelectedItem());
 			stage.setScene(scene);
 		    stage.setTitle("Edytuj wizytê");	
@@ -517,13 +511,11 @@ public class RejestracjaController extends MainController {
 		
 	}
 	public void w_szczegoly() throws IOException {
-		System.out.println("cccc");
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_wizyty.fxml"));
 		Pane root = (Pane)fxmlLoader.load();
 		Szczegoly_wizytyController controller = fxmlLoader.<Szczegoly_wizytyController>getController();
 		controller.set_labels(wizyty.getSelectionModel().getSelectedItem());
 		Scene scene = new Scene(root);
-		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
 	    stage.setTitle("Szczegó³y wizyty");	
@@ -570,13 +562,11 @@ public class RejestracjaController extends MainController {
 		
 	}
 	public void s_szczegoly() throws IOException {
-		System.out.println("cccc");
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_skierowania.fxml"));
 		Pane root = (Pane)fxmlLoader.load();
 		Szczegoly_skierowaniaController controller = fxmlLoader.<Szczegoly_skierowaniaController>getController();
 		controller.set_labels(skierowania.getSelectionModel().getSelectedItem());
 		Scene scene = new Scene(root);
-		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
 	    stage.setTitle("Szczegó³y skierowania");	
@@ -622,13 +612,11 @@ public class RejestracjaController extends MainController {
 		
 	}
 	public void r_szczegoly() throws IOException {
-		System.out.println("cccc");
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_recepty.fxml"));
 		Pane root = (Pane)fxmlLoader.load();
 		Szczegoly_receptyController controller = fxmlLoader.<Szczegoly_receptyController>getController();
 		controller.set_labels(recepty.getSelectionModel().getSelectedItem());
 		Scene scene = new Scene(root);
-		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
 	    stage.setTitle("Szczegó³y recepty");	
@@ -640,7 +628,6 @@ public class RejestracjaController extends MainController {
 	}
 	//////////////////////////////////////////////////////////////DLA LEKARZY/////////////////////////////////////////////////////////////////////////////
 	public void l_dodaj() {
-		System.out.println("bbbbb");
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dodawanie_lekarza.fxml"));
 			Pane root = (Pane)fxmlLoader.load();
@@ -671,11 +658,9 @@ public class RejestracjaController extends MainController {
 			Stage stage = new Stage();
 			//Nalezy stworzyæ referencjê do drugiego kontrolera w celu przekazania istniejacej listy//
 			Edytowanie_lekarzaController controller = fxmlLoader.getController();
-			Edytowanie_lekarzaController controller2 = fxmlLoader.getController();
-			Edytowanie_lekarzaController controllerIndex = fxmlLoader.getController();
 			//Odbiór i przekazanie danych
-			controllerIndex.setIndex(lekarze.getSelectionModel().selectedIndexProperty().get());
-			controller2.setItems(lekarze.getItems());
+			controller.setIndex(lekarze.getSelectionModel().selectedIndexProperty().get());
+			controller.setItems(lekarze.getItems());
 		    controller.getItems(lekarze.getSelectionModel().getSelectedItem());
 			stage.setScene(scene);
 		    stage.setTitle("Edytuj lekarza");	
@@ -732,13 +717,11 @@ public class RejestracjaController extends MainController {
 		
 	}
 	public void l_szczegoly() throws IOException {
-		System.out.println("cccc");
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Szczegoly_lekarza.fxml"));
 		Pane root = (Pane)fxmlLoader.load();
 		Szczegoly_lekarzeController controller = fxmlLoader.<Szczegoly_lekarzeController>getController();
 		controller.set_labels(lekarze.getSelectionModel().getSelectedItem());
 		Scene scene = new Scene(root);
-		System.out.println("COstam");
 		Stage stage = new Stage();
 		stage.setScene(scene);
 	    stage.setTitle("Szczegó³y lekarza");	
